@@ -1,22 +1,37 @@
+.site {
+    margin-left: 18%;
+    margin-right: 18%;
+    border-color: rgb(255, 255, 255);
+    border-radius: 3px;
+    border-style: dotted;
+    padding: 5px;
+}
+
 h1{
   background-color: grey;
   padding-top: 20px;
   padding-bottom: 20px;
+  padding-left: 20px;
+  margin-top: 0px;
 }
 
 .menyrad{
   background-color: rgb(130, 58, 58);
   padding-bottom: 20px;
+  margin-top: -22px;
 }
 
 span{
   display: inline-block;
-  margin-left: 10px;
+  margin-top: 15px;
+  margin-left: 20px;
+  font-size: 26px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.homebutton {
-    font-size: 36px;
-    margin-left: 0px;
+.user_login {
+    float: right;
+    padding-right: 5%;
 }
 
 .movie_trailer_window{
