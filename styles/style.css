@@ -1,3 +1,30 @@
+h1{
+  background-color: grey;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.menyrad{
+  background-color: rgb(130, 58, 58);
+  padding-bottom: 20px;
+}
+
+span{
+  display: inline-block;
+  margin-left: 10px;
+}
+
 .homebutton {
     font-size: 36px;
+    margin-left: 0px;
+}
+
+.movie_trailer_window{
+  background-color: rgb(28, 89, 42);
+  padding-bottom: 20px;
+}
+
+.movie_reel{
+  background-color: rgb(32, 67, 82);
+  padding-bottom: 20px;
 }
