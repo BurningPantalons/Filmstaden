@@ -1,34 +1,34 @@
 [
   {
-    "Title": "The Graduate",
-    "Year": "1967",
+    "Title": "Bohemian Rhapsody",
+    "Year": "2018",
     "Rated": "Approved",
-    "Released": "22 Dec 1967",
-    "Runtime": "106 min",
+    "Released": "2 Nov 2018",
+    "Runtime": "134 min",
     "Genre": [
-      "Comedy",
+      "Biography",
       "Drama",
-      "Romance"
+      "Music"
     ],
-    "Director": "Mike Nichols",
+    "Director": "Bryan Singer",
     "Writers": [
-      "Calder Willingham (screenplay)",
-      "Buck Henry (screenplay)",
-      "Charles Webb (based on the novel by)"
+      "Anthony McCarten (story by)",
+      "Peter Morgan (story by)",
+      "Anthony McCarten (screenplay by)"
     ],
     "Actors": [
-      "Anne Bancroft",
-      "Dustin Hoffman",
-      "Katharine Ross",
-      "William Daniels"
+      "Rami Malek",
+      "Lucy Boynton",
+      "Gwilym Lee",
+      "Ben Hardy"
     ],
-    "Plot": "Ben has recently graduated college, with his parents now expecting great things from him. At his \"Homecoming\" party, Mrs. Robinson, the wife of his father's business partner, has Ben drive her home, which leads to an affair between the two. The affair eventually ends, but comes back to haunt him when he finds himself falling for Elaine, Mrs. Robinson's daughter.",
+    "Plot": "BThe story of the legendary British rock band Queen and lead singer Freddie Mercury, leading up to their famous performance at Live Aid (1985). ",
     "Language": "English",
     "Country": "USA",
-    "Awards": "Won 1 Oscar. Another 22 wins & 13 nominations.",
-    "Poster": "http://ia.media-imdb.com/images/M/MV5BMTQ0ODc4MDk4Nl5BMl5BanBnXkFtZTcwMTEzNzgzNA@@._V1_SX300.jpg",
-    "imdbRating": "8.1",
-    "imdbVotes": "183,131",
-    "imdbID": "tt0061722"
+    "Awards": "Won 4 Oscars. Another 41 wins & 76 nominations.",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMTA2NDc3Njg5NDVeQTJeQWpwZ15BbWU4MDc1NDcxNTUz._V1_.jpg",
+    "imdbRating": "8.0",
+    "imdbVotes": "450,374s",
+    "imdbID": "tt1727824"
   }
 ]
