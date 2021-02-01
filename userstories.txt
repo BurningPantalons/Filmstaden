@@ -1,5 +1,4 @@
-User storie
-s
+User stories
 G-krav
 
 Samtliga dessa krav/user stories ska vara uppfyllda för G:
