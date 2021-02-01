@@ -43,3 +43,15 @@ span{
   background-color: rgb(32, 67, 82);
   padding-bottom: 20px;
 }
+
+.rightside{
+  float: right;
+  width: 50%;
+  border: 1px solid black;
+}
+
+.leftside{
+  float: left;
+  width: auto;
+  border: 1px solid black;
+}
