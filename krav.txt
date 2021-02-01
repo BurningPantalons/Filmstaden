@@ -1,0 +1,27 @@
+KRAV
+
+    - Trello för projektplanering.
+
+    - Git för versionshantering, med tydliga (beskrivande) commit-meddelanden.
+
+    - Feature-branches i Git (inga personliga).
+
+    - Backend: Ni kommer att få skelettkod i Node.js/JavaScript som ni kan komplettera
+
+    - På backend ska ni om ni väljer att använda en databas använda SQLite 
+      (instruktioner kommer att ges om hur detta fungerar, mycket likt MySQL). 
+      Ni kan också välja att bara spara data i JSON-filer.
+
+    - Bra systemarkitektur med tydlig mappstruktur. (Inte en mapp som innehåller hela programmet)
+
+    - Ingen fil ska vara över 300 rader. (Över 200 och det är dags att bryta ut delar i annan fil)
+
+    - Alla i gruppen ska arbeta med både HTML/CSS och JavaScript.
+
+    - Ni skall arbeta agilt enligt SCRUM, t.ex. med sprint planering, daily stands up m.m.
+
+    - Skriv er kod objektorienterat 
+      (med tydliga klassnamn och metodnamn etc) alternativt med uppdelad i tydligt namngivna funktioner.
+    - Använd inte komplexa frontendramverk som Angular, Vue eller React.
+    
+    - Använd gärna jQuery som hjälpbibliotek (inte ett krav, men ett tips).

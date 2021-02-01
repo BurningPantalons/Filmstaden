@@ -1,0 +1,37 @@
+User storie
+s
+G-krav
+
+Samtliga dessa krav/user stories ska vara uppfyllda för G:
+
+    Som besökare vill jag få information om filmer jag kan se på biograferna.
+    Som besökare vill jag kunna veta när en film visas på en biograf.
+    Som besökare vill jag kunna boka biljetter till filmer.
+    Som systemägare vill jag se en prototyp med minst 5 filmer, fördelade på 3 dagliga visningar under 4 veckors (fiktiva) visningsdatum över våra 2 biografsalonger.
+    Som besökare vill jag kunna se lediga platser i en salong på en specifik visning.
+    Som besökare vill jag kunna gå till en detaljsida för en specifik film.
+    Som besökare vill jag kunna boka platser på en visning.
+    Som besökare vill jag inte kunna boka redan bokade platser.
+    Som besökare vill jag få en bekräftelse på bokning, innehållande valda stolsnummer, vilken film och datum/tid.
+    Som systemägare vill jag att alla bokningar sparas i databasen (alternativt i en json-fil via en minimal backend).
+    Som användare vill jag kunna se mina bokningar och bokningshistorik (genom att logga in eller att de sparas lokalt på min dator via localStorage).
+    Som besökare vill jag kunna boka biljetter med olika pris:
+        Barn: 65kr
+        Normal: 85kr
+        Pensionär: 75kr
+
+
+VG-krav
+
+Uppfyll alla G-krav, samt minst 5 av följande VG-krav/user stories:
+
+    Se till att bygga sajten som en s.k. Single Page Application.
+    Sparar bokningar i SQLite (snarare än i textfiler) på backend.
+    Sajten ska vara responsiv - dvs klara av att visas på olika stora skärmar (mobiler, plattor, datorskärmar av olika storlek).
+    Som besökare vill jag kunna filtrera visningar på datum.
+    Som besökare vill jag kunna filtrera filmer på åldersgrupp.
+    Som besökare vill jag kunna se trailers på filmer.
+    Som besökare vill jag se live när stolar blir bokade när jag ska välja stolar på en visning.
+    Som användare vill jag kunna avboka en framtida bokning.
+
+
