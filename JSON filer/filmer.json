@@ -22,13 +22,44 @@
       "Gwilym Lee",
       "Ben Hardy"
     ],
-    "Plot": "BThe story of the legendary British rock band Queen and lead singer Freddie Mercury, leading up to their famous performance at Live Aid (1985). ",
+    "Plot": "The story of the legendary British rock band Queen and lead singer Freddie Mercury, leading up to their famous performance at Live Aid (1985). ",
     "Language": "English",
     "Country": "USA",
     "Awards": "Won 4 Oscars. Another 41 wins & 76 nominations.",
     "Poster": "https://m.media-amazon.com/images/M/MV5BMTA2NDc3Njg5NDVeQTJeQWpwZ15BbWU4MDc1NDcxNTUz._V1_.jpg",
     "imdbRating": "8.0",
-    "imdbVotes": "450,374s",
+    "imdbVotes": "450,374",
     "imdbID": "tt1727824"
+  },
+  {
+    "Title": "The Terminator",
+    "Year": "1984",
+    "Rated": "Approved",
+    "Released": "26 Oct 1984",
+    "Runtime": "107 min",
+    "Genre": [
+      "Action",
+      "Sci-Fi"
+    ],
+    "Director": "James Cameron",
+    "Writers": [
+      "James Cameron (written by)",
+      "Gale Anne Hurd (written by)",
+      "William Wisher (additional dialogue) (as William Wisher Jr.)"
+    ],
+    "Actors": [
+      "Arnold Schwarzenegger",
+      "Michael Biehn",
+      "Linda Hamilton",
+      "Paul Winfield"
+    ],
+    "Plot": "A human soldier is sent from 2029 to 1984 to stop an almost indestructible cyborg killing machine, sent from the same year, which has been programmed to execute a young woman whose unborn son is the key to humanity's future salvation. ",
+    "Language": "English",
+    "Country": "USA",
+    "Awards": "7 wins & 6 nominations.",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BYTViNzMxZjEtZGEwNy00MDNiLWIzNGQtZDY2MjQ1OWViZjFmXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
+    "imdbRating": "8.0",
+    "imdbVotes": "799,803",
+    "imdbID": "tt0088247"
   }
 ]
