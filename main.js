@@ -1,10 +1,13 @@
-async function readMovieJson() {
-  let jsonMovie = await $.getJSON("/JSON filer/filmer.json");
-  console.log(jsonMovie);
 
-  showDocumentAsHtml(jsonMovie)
+/* Hämtar JSON-data från fil och lägger i variabel jsonMovies */
+/* Kör sedan funktionen showDocumentAsHtml() med argumentet jsonMovies */
+async function readMovieJson() {
+  let jsonMovies = await $.getJSON("/JSON filer/filmer.json");
+  showDocumentAsHtml(jsonMovies);
 }
 
+/* The "for...of" statement creates a loop iterating over iterable objects (document)
+   $document creates a div for each object.*/
 function showDocumentAsHtml(collection) {
 
   for (let document of collection) {
