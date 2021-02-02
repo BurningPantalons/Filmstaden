@@ -5,11 +5,20 @@ async function readMovieJson() {
   let jsonMovies = await $.getJSON("/JSON filer/filmer.json");
   showDocumentAsHtml(jsonMovies);
 }
-
+/*Läs in JSON för visningar, Loopa igenom och gör en visningslista*/
 async function readSalongJson() {
   let jsonSalong = await $.getJSON("/JSON filer/salonger.json");
   console.log(jsonSalong);
   showSalongerAsHtml(jsonSalong)
+}
+
+async function readVisiningJson() {
+	let jsonVisningar = await $.getJSON("/JSON filer/visningar.json");
+	let result = [];
+	for (let i in jsonVisningar) {
+		result.push(jsonVisningar[i]);
+	}
+	console.log(result);
 }
 
 
