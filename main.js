@@ -60,7 +60,7 @@ function showSalongerAsHtml(collection) {
           $salong.append('<div class="rowhead">' + "Row " + row + '</div>');
           let $row = $('<div class="row"></div>');
           for (let seat = 0; seat < numOfSeats[row]; seat++) {
-            $row.append('<div class="seat">' + seat + '</div>');
+            $row.append('<i class="fas fa-couch">' + seat + '</i>');
             $salong.append($row);
           }
         }
