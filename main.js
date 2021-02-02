@@ -14,7 +14,7 @@ async function readSalongJson() {
 
 async function readVisiningJson() {
 <<<<<<< Updated upstream
-  let jsonVisningar = await $.getJSON("/JSON filer/visningar.json");
+  let jsonVisningar = await $.getJSON("/JSON_filer/visningar.json");
   let result = [];
   for (let i in jsonVisningar) {
     result.push(jsonVisningar[i]);
