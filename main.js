@@ -13,12 +13,12 @@ async function readSalongJson() {
 }
 
 async function readVisiningJson() {
-	let jsonVisningar = await $.getJSON("/JSON filer/visningar.json");
-	let result = [];
-	for (let i in jsonVisningar) {
-		result.push(jsonVisningar[i]);
-	}
-	console.log(result);
+  let jsonVisningar = await $.getJSON("/JSON filer/visningar.json");
+  let result = [];
+  for (let i in jsonVisningar) {
+    result.push(jsonVisningar[i]);
+  }
+  console.log(result);
 }
 
 
@@ -43,15 +43,22 @@ function showDocumentAsHtml(collection) {
 
 function showSalongerAsHtml(collection) {
 
-  for (let document of collection) {
-    let $document = $('<div class="document"></div>');
+  for (let salong of collection) {
+    let $salong = $('<div class="salong"></div>');
 
-    for (let key in document) {
-      let value = document[key];
-      $document.append('<div><span>' + key + ': <span>' + value + '</div>');
+    for (let key in salong) {
+      let NumOfSeatsOnRow = salong[key];
+      $salong.append('<div><span>' + key + ': <span>' + NumOfSeatsOnRow + '</div>');
+
+
+      if (key == "seatsPerRow") {
+        for (let i = 0; i < NumOfSeatsOnRow[i]; i++) {
+          $salong.append('<div class="seat">' + NumOfSeatsOnRow[i] + '</div>');
+        }
+      }
     }
 
-    $('.leftside').append($document);
+    $('.leftside').append($salong);
     $('.leftside').append("<br>");
 
   }
