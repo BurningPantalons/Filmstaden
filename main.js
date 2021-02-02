@@ -2,23 +2,32 @@
 /* Hämtar JSON-data från fil och lägger i variabel jsonMovies */
 /* Kör sedan funktionen showDocumentAsHtml() med argumentet jsonMovies */
 async function readMovieJson() {
-  let jsonMovies = await $.getJSON("/JSON filer/filmer.json");
+  let jsonMovies = await $.getJSON("/JSON_filer/filmer.json");
   showDocumentAsHtml(jsonMovies);
 }
 /*Läs in JSON för visningar, Loopa igenom och gör en visningslista*/
 async function readSalongJson() {
-  let jsonSalong = await $.getJSON("/JSON filer/salonger.json");
+  let jsonSalong = await $.getJSON("/JSON_filer/salonger.json");
   console.log(jsonSalong);
   showSalongerAsHtml(jsonSalong)
 }
 
 async function readVisiningJson() {
+<<<<<<< Updated upstream
   let jsonVisningar = await $.getJSON("/JSON filer/visningar.json");
   let result = [];
   for (let i in jsonVisningar) {
     result.push(jsonVisningar[i]);
   }
   console.log(result);
+=======
+	let jsonVisningar = await $.getJSON("/JSON_filer/visningar.json");
+	let result = [];
+	for (let i in jsonVisningar) {
+		result.push(jsonVisningar[i]);
+	}
+	console.log(result);
+>>>>>>> Stashed changes
 }
 
 
