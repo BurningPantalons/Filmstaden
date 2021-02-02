@@ -55,12 +55,16 @@ function showSalongerAsHtml(collection) {
       /* Creating a div class="row" */
       if (key == "seatsPerRow") {
         let numOfSeats = value;
+
         for (let row = 0; row < numOfSeats[row]; row++) {
-          $salong.append('<div class="row">' + "Row " + row + '</div>');
+          $salong.append('<div class="rowhead">' + "Row " + row + '</div>');
+          let $row = $('<div class="row"></div>');
           for (let seat = 0; seat < numOfSeats[row]; seat++) {
-            $salong.append('<div class="seat">' + seat + '</div>');
+            $row.append('<div class="seat">' + seat + '</div>');
+            $salong.append($row);
           }
         }
+
       }
     }
 

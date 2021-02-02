@@ -1,18 +1,17 @@
 [
   {
-    "name": "Salong 1",    
+    "name": "Salong 1",
     "seatsPerRow": [
+      6,
+      6,
+      8,
+      8,
       10,
-      10,
-      10,
-      10,
-      10,
-      10,
-      10      
+      10
     ]
   },
   {
-    "name": "Salong 2",    
+    "name": "Salong 2",
     "seatsPerRow": [
       7,
       7,
@@ -23,4 +22,3 @@
     ]
   }
 ]
-

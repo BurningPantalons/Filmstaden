@@ -52,13 +52,24 @@ span{
 
 .leftside{
   float: left;
-  width: auto;
+  width: 49%;
   border: 1px solid black;
 }
 
+.salong {
+
+}
+
 .row {
-  display: flex;
-  margin-left: 20%;
+  text-align:center;
+  margin:auto;
+}
+
+.rowhead {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align:center;
+  margin-bottom:1%;
+  margin-top:3%;
 }
 
 .seat {
@@ -68,10 +79,4 @@ span{
   padding: 1%;
   background-color: crimson;
   border-radius: 2px;
-}
-
-.seat:first-of-type { /* Löser ej denna, vill centrera varje rad :) */
-  display:inline-block;
-  margin-left: 10%;
- 
 }
