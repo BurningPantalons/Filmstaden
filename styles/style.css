@@ -55,3 +55,20 @@ span{
   width: auto;
   border: 1px solid black;
 }
+
+.row {
+  display: flex;
+  margin-left: 20%;
+}
+
+.seat {
+  display:inline-block;
+  margin-left: 2%;
+  margin-right: 3%;
+}
+
+.seat:first-of-type { /* Löser ej denna, vill centrera varje rad :) */
+  display:inline-block;
+  margin-left: 10%;
+ 
+}

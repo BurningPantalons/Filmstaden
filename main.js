@@ -50,13 +50,16 @@ function showSalongerAsHtml(collection) {
       let value = salong[key];
       $salong.append('<div><span>' + key + ': <span>' + value + '</div>');
 
-      /* Keys are name & seatsPerRow..
-      if key is seatsPerRow
-      then for loop will get each value(number of seats) at each index(row) in array of salong */
+      /* Assigning numOfSeats the value of value for ease of read */
+      /* Looping through each row */
+      /* Creating a div class="row" */
       if (key == "seatsPerRow") {
         let numOfSeats = value;
         for (let row = 0; row < numOfSeats[row]; row++) {
-          $salong.append('<div class="row">' + numOfSeats[row] + '</div>');
+          $salong.append('<div class="row">' + "Row " + row + '</div>');
+          for (let seat = 0; seat < numOfSeats[row]; seat++) {
+            $salong.append('<div class="seat">' + seat + '</div>');
+          }
         }
       }
     }
