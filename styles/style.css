@@ -65,6 +65,9 @@ span{
   display:inline-block;
   margin-left: 2%;
   margin-right: 3%;
+  padding: 1%;
+  background-color: crimson;
+  border-radius: 2px;
 }
 
 .seat:first-of-type { /* Löser ej denna, vill centrera varje rad :) */
