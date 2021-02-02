@@ -85,4 +85,5 @@ span{
   color:rgb(16, 14, 145);
    border: 1px solid black;
    padding: 1%;
+   cursor: pointer;
 }
