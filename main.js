@@ -50,9 +50,11 @@ function showSalongerAsHtml(collection) {
       let value = salong[key];
       $salong.append('<div><span>' + key + ': <span>' + value + '</div>');
 
+
       /* Assigning numOfSeats the value of value for ease of read */
       /* Looping through each row */
       /* Creating a div class="row" */
+
       if (key == "seatsPerRow") {
         let numOfSeats = value;
 
@@ -74,7 +76,12 @@ function showSalongerAsHtml(collection) {
   }
 }
 
-
+//Osäker på om vi måste skriva om showSalongerAsHtml med en map
+//För att tillgängligöra att se vilket säte som trycks på.
+$('.leftside').on('click', '.fas', function () {
+  var clickedBtnID = $(this);
+  alert('clicked on seat' + $(clickedBtnID));
+});
 
 readSalongJson();
 readMovieJson();
