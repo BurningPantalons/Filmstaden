@@ -1,10 +1,9 @@
 
 /* Hämtar JSON-data från fil och lägger i variabel jsonMovies */
 /* Kör sedan funktionen showDocumentAsHtml() med argumentet jsonMovies */
-async function readMovieJson() {
-  let jsonMovies = await $.getJSON("/json/filmer.json");
-  showDocumentAsHtml(jsonMovies);
-}
+
+/*flyttad till filmer.js - David*/
+
 /*Läs in JSON för visningar, Loopa igenom och gör en visningslista*/
 async function readSalongJson() {
   let jsonSalong = await $.getJSON("/json/salonger.json");
@@ -41,49 +40,3 @@ function showDocumentAsHtml(collection) {
   }
 }
 
-function showSalongerAsHtml(collection) {
-
-  for (let salong of collection) {
-    let $salong = $('<div class="salong"></div>');
-
-    for (let key in salong) {
-      let value = salong[key];
-      $salong.append('<div><span>' + key + ': <span>' + value + '</div>');
-
-      // <form> 
-
-      /* Assigning numOfSeats the value of value for ease of read */
-      /* Looping through each row */
-      /* Creating a div class="row" */
-
-      if (key == "seatsPerRow") {
-        let numOfSeats = value;
-
-        for (let row = 0; row < numOfSeats[row]; row++) {
-          $salong.append('<div class="rowhead">' + "Row " + row + '</div>');
-          let $row = $('<div class="row"></div>');
-          for (let seat = 0; seat < numOfSeats[row]; seat++) {
-            $row.append(`<input type="checkbox" value="${seat}">` +`<label>${seat}</label>`);
-            $salong.append($row);
-          }
-        }
-
-      }
-    }
-
-    $('.leftside').append($salong);
-    $('.leftside').append("<br>");
-
-  }
-}
-
-//Osäker på om vi måste skriva om showSalongerAsHtml med en map
-//För att tillgängligöra att se vilket säte som trycks på.
-
-$('.leftside').on('click', '.fas', function() {
-  var clickedBtnID = $(this);
-  alert('clicked on seat' + $(clickedBtnID));
-});
-
-readSalongJson();
-readMovieJson();
