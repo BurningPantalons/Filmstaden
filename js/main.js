@@ -37,7 +37,10 @@ function showMovieAsHtml(collection, className) {
     }
     if (key == "Year") {
       $document.append(`<h2> Årtal ${value} </h2>`);
-    }
+      }
+      if (key == "Poster") { 
+        $document.append(`<img src=${value}>`)
+      }
 
     $('.rightside').append($document);
 
