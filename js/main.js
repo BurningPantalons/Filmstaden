@@ -24,19 +24,23 @@ async function readVisiningJson() {
 /* The "for...of" statement creates a loop iterating over iterable objects (document)
    $document creates a div for each object.*/
 
-function showDocumentAsHtml(collection) {
+function showMovieAsHtml(collection, className) {
 
   for (let document of collection) {
-    let $document = $('<div class="document"></div>');
+    let $document = $(`<div class="${className}"></div>`);
 
     for (let key in document) {
       let value = document[key];
-      $document.append('<div><span>' + key + ': <span>' + value + '</div>');
+      
+    if (key == "Title") {
+      $document.append(`<h1 class="title"> ${value} </h1>`);
+    }
+    if (key == "Year") {
+      $document.append(`<h2> Årtal ${value} </h2>`);
     }
 
     $('.rightside').append($document);
-    $('.rightside').append("<br>");
 
   }
 }
-
+}

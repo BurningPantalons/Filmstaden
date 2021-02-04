@@ -88,3 +88,7 @@ span{
    cursor: pointer;
    margin-left: 1%;
 }
+
+.movie {
+  background-color: blue;
+}

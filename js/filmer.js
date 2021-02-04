@@ -1,6 +1,7 @@
 async function readMovieJson() {
+  let movie = "movie";
   let jsonMovies = await $.getJSON("/json/filmer.json");
-  showDocumentAsHtml(jsonMovies);
+  showMovieAsHtml(jsonMovies, movie);
 }
 
 readMovieJson();
