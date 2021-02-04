@@ -5,10 +5,11 @@
     border-radius: 3px;
     border-style: dotted;
     padding: 5px;
+    background-color: grey;
 }
 
 h1{
-  background-color: grey;
+  background-color: crimson;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 20px;
@@ -16,9 +17,11 @@ h1{
 }
 
 .menyrad{
-  background-color: rgb(130, 58, 58);
   padding-bottom: 20px;
   margin-top: -22px;
+}
+
+.menyrad.href {
 }
 
 span{
@@ -35,12 +38,12 @@ span{
 }
 
 .movie_trailer_window{
-  background-color: rgb(28, 89, 42);
+  text-align: center;
   padding-bottom: 20px;
 }
 
 .movie_reel{
-  background-color: rgb(32, 67, 82);
+  text-align: center;
   padding-bottom: 20px;
 }
 
