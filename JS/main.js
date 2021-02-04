@@ -50,6 +50,7 @@ function showSalongerAsHtml(collection) {
       let value = salong[key];
       $salong.append('<div><span>' + key + ': <span>' + value + '</div>');
 
+      // <form> 
 
       /* Assigning numOfSeats the value of value for ease of read */
       /* Looping through each row */
@@ -62,7 +63,7 @@ function showSalongerAsHtml(collection) {
           $salong.append('<div class="rowhead">' + "Row " + row + '</div>');
           let $row = $('<div class="row"></div>');
           for (let seat = 0; seat < numOfSeats[row]; seat++) {
-            $row.append('<i class="fas fa-couch">' + seat + '</i>');
+            $row.append(`<input type="checkbox" value="${seat}">` +`<label>${seat}</label>`);
             $salong.append($row);
           }
         }
@@ -78,7 +79,8 @@ function showSalongerAsHtml(collection) {
 
 //Osäker på om vi måste skriva om showSalongerAsHtml med en map
 //För att tillgängligöra att se vilket säte som trycks på.
-$('.leftside').on('click', '.fas', function () {
+
+$('.leftside').on('click', '.fas', function() {
   var clickedBtnID = $(this);
   alert('clicked on seat' + $(clickedBtnID));
 });
