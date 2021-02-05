@@ -2,6 +2,7 @@ async function readMovieJson() {
   let movie = "movie";
   let jsonMovies = await $.getJSON("/json/filmer.json");
   showMovieAsHtml(jsonMovies, movie);
+  console.log(jsonMovies);
 }
 
 readMovieJson();
@@ -12,23 +13,25 @@ readMovieJson();
 function showMovieAsHtml(collection, className) {
 
   for (let document of collection) {
-    let $document = $(`<div class="${className}"></div>`);
 
-    for (let key in document) {
-      let value = document[key];
-      
-    if (key == "Title") {
-      $document.append(`<h1 class="title"> ${value} </h1>`);
-    }
-    if (key == "Year") {
-      $document.append(`<h2> Årtal ${value} </h2>`);
-      }
-      if (key == "Poster") { 
-        $document.append(`<img src=${value}>`)
-      }
+   let $document = $(`<div class="${className}">
+  <img src=${document.Poster} />
 
-    $('.rightside').append($document);
+  <div class="MovieText">
+   <h1 class="title">${document.Title}</h1>
+   <h2 class="Årtal"> Årtal ${document.Year} </h2>
+   </div>
 
-  }
+   <div class="MovieButton">
+    <button type="button">Läs Mer!</button>
+    <button type="button">Boka Biljett!</button>
+  </div>
+  
+</div>`);
+
+     $('.MovieMain').append($document);
+    
+   
 }
 }
+
