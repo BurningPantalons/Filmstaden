@@ -19,14 +19,14 @@ function showMovieAsHtml(collection, className) {
 
   <div class="MovieText">
    <h1 class="title">${document.Title}</h1>
-   <h2 class="Årtal"> Årtal ${document.Year} </h2>
-   </div>
+   <h2 class="Årtal"> Årtal ${document.Year} </h2> 
 
-   <div class="MovieButton">
-    <button type="button">Läs Mer!</button>
-    <button type="button">Boka Biljett!</button>
+   <div class="ButtonContainer">
+    <button class="movieButton" type="button">Läs Mer!</button>
+    <button class="movieButton" type="button">Boka Biljett!</button>
   </div>
   
+  </div>
 </div>`);
 
      $('.MovieMain').append($document);
