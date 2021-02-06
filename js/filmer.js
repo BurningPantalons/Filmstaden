@@ -13,7 +13,7 @@ readMovieJson();
 function showMovieAsHtml(collection, className) {
 
   for (let document of collection) {
-
+   
    let $document = $(`<div class="${className}">
   <img src=${document.Poster} />
 
@@ -22,10 +22,10 @@ function showMovieAsHtml(collection, className) {
    <h2 class="Årtal"> Årtal ${document.Year} </h2> 
 
    <div class="ButtonContainer">
-    <button class="movieButton" type="button">Läs Mer!</button>
+    <button onclick="location.href='/html/${document.MovieId}.html'" id=${document.MovieId} class="movieButton" type="button">Läs Mer!</button>
     <button class="movieButton" type="button">Boka Biljett!</button>
   </div>
-  
+
   </div>
 </div>`);
 
@@ -34,4 +34,7 @@ function showMovieAsHtml(collection, className) {
    
 }
 }
+
+
+
 
