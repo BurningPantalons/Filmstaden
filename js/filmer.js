@@ -2,6 +2,7 @@ async function readMovieJson() {
   let movie = "movie";
   let jsonMovies = await $.getJSON("/json/filmer.json");
   showMovieAsHtml(jsonMovies, movie);
+  
   console.log(jsonMovies);
 }
 
@@ -25,7 +26,7 @@ function showMovieAsHtml(collection, className) {
    <p class="Genre"> Genre: ${document.Genre} </p> 
    </div>
    <div class="ButtonContainer">
-    <button onclick="location.href='/html/detaljsida.html?${document.MovieId}'" id=${document.MovieId} class="movieButton" type="button">Läs Mer</button>
+    <button onclick="navigateToMovieInfo('${document.MovieId}')" class="movieButton" type="button">Läs Mer</button>
     <button onclick="location.href='/html/platsbokning.html?${document.MovieId}'" class="movieButton" type="button">Boka Biljett</button>
   </div>
 
@@ -37,6 +38,15 @@ function showMovieAsHtml(collection, className) {
    
 }
 }
+
+function navigateToMovieInfo(MovieId) {
+  sessionStorage.setItem("movie",MovieId)
+  window.location = `detaljsida.html`
+  
+}
+
+
+
 
 
 
