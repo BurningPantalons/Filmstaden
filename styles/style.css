@@ -1,3 +1,11 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+
+body {
+  background-color: rgb(44, 44, 44);
+}
+
 .site {
     margin-left: 8%;
     margin-right: 8%;
@@ -25,16 +33,35 @@ h1{
 
 .menyrad span a:hover {
   color: white;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .menyrad span a:visited {
   color: white;
   text-decoration: none;
 }
-.menyrad span a:active {
+.menyrad span a .active {
   color: white;
   text-decoration: none;
+  font-weight: bold;
+}
+
+.homebutton {
+  font-family: 'Poiret One', cursive;
+  font-size: 58px;
+  margin-right: 2%;
+  margin-left: 6%;
+}
+
+.homebutton #active {
+  font-family: 'Poiret One', cursive;
+  font-size: 58px;
+  margin-right: 2%;
+  margin-left: 6%;
+}
+
+#active {
+  font-weight: bold;
 }
   
 
@@ -48,6 +75,7 @@ span{
 }
 
 .user_login {
+    margin-top: 50px;
     float: right;
     padding-right: 5%;
 }
