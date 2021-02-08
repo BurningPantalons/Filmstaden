@@ -14,7 +14,7 @@ function showMovieAsHtml(collection, className) {
 
   for (let document of collection) {
    
-   let $document = $(`<div class="${className}">
+   let $document =  $(`<div class="${className}">
   <img src=${document.Poster} />
 
   <div class="MovieText">
