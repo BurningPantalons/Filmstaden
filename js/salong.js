@@ -2,7 +2,10 @@
 function showSalongerAsHtml(collection) {
 
   for (let salong of collection) {
+
     let $salong = $('<div class="salong"></div>');
+    
+   //$salong.append('<form'>  ); 
 
     for (let key in salong) {
       let value = salong[key];
@@ -23,8 +26,8 @@ function showSalongerAsHtml(collection) {
       }
     }
 
-    $('.leftside').append($salong);
-    $('.leftside').append("<br>");
+    $('.BookingMain').append($salong);
+    $('.BookingMain').append("<br>");
 
   }
 }

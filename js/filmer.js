@@ -23,7 +23,7 @@ function showMovieAsHtml(collection, className) {
 
    <div class="ButtonContainer">
     <button onclick="location.href='/html/detaljsida.html?${document.MovieId}'" id=${document.MovieId} class="movieButton" type="button">Läs Mer!</button>
-    <button class="movieButton" type="button">Boka Biljett!</button>
+    <button onclick="location.href='/html/platsbokning.html?${document.MovieId}'" class="movieButton" type="button">Boka Biljett!</button>
   </div>
 
   </div>
