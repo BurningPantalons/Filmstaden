@@ -19,8 +19,11 @@ function showMovieAsHtml(collection, className) {
 
   <div class="MovieText">
    <h1 class="title">${document.Title}</h1>
-   <h2 class="Årtal"> Årtal ${document.Year} </h2> 
-
+   <div>
+   <p class="Released"> Premiär: ${document.Released} </p> 
+   <p class="Synopsis"> Handling: ${document.Plot} </p> 
+   <p class="Genre"> Genre: ${document.Genre} </p> 
+   </div>
    <div class="ButtonContainer">
     <button onclick="location.href='/html/detaljsida.html?${document.MovieId}'" id=${document.MovieId} class="movieButton" type="button">Läs Mer!</button>
     <button onclick="location.href='/html/platsbokning.html?${document.MovieId}'" class="movieButton" type="button">Boka Biljett!</button>
