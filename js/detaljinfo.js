@@ -1,11 +1,11 @@
 async function showMovieInfo() {
   let jsonMovies = await $.getJSON("/json/filmer.json");
   let movieId = sessionStorage.getItem("movie");
-  
-  let movie = jsonMovies.filter(obj => obj.MovieId === movieId)[0]
-  
-  let $document = $(`<div class="Detalj">  
 
+  let movie = jsonMovies.filter(obj => obj.MovieId === movieId)[0]
+
+  let $document = $(`<div class="Detalj">  
+  <img class="poster" src=${movie.Poster} />
   <div class="InfoText">
    <h1 class="Title">${movie.Title}</h1>
    <div>
@@ -17,7 +17,7 @@ async function showMovieInfo() {
    </div>`);
 
   $('.infoMain').append($document);
-  
+
 }
 
 showMovieInfo();

@@ -1,6 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Poiret+One&family=Mulish&family=Red+Hat+Display&display=swap');
 @import url(salong.css);
+@import url(detaljsida.css); 
 
 body {
   background-color: rgb(44, 44, 44);
