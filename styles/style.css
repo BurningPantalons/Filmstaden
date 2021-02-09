@@ -142,6 +142,7 @@ iframe {
   margin-top: 2px;
   margin-bottom: 1%;
   padding: 1%;
+
 }
 
 .poster {
@@ -198,7 +199,7 @@ iframe {
 .Synopsis {
   font-family: 'Red Hat Display', sans-serif;
   color: black;
-  width: 950px;
+  justify-content: left;
 }
 
 .MovieText{
