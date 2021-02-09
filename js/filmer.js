@@ -41,7 +41,7 @@ function showMovieAsHtml(collection, className) {
 
 function navigateToMovieInfo(MovieId) {
   sessionStorage.setItem("movie",MovieId)
-  window.location = `detaljsida.html`
+  window.location = `detaljsida.html?${MovieId}`
   
 }
 
