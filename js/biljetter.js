@@ -3,7 +3,7 @@
 let filmval = $(`
   <div class="filmval">
     <label for="movies">Välj film:</label>
-    <select name="movies" id="movies" onchange="createCalendarDays(); pickTime(value)"></select>
+    <select name="movies" id="movies" onchange="createCalendarDays(); pickTime(value); showAvailableTimes(value)"></select>
   </div>`);
   
 $('.movieChoice').append(filmval);
@@ -12,10 +12,10 @@ pickMovie();
 
 async function pickMovie(){
   let jsonMovies = await $.getJSON("/json/filmer.json");
-  let i = 1;
+  
   for (let movies of jsonMovies) {
-    let $option = $(`<option value="${i}">${movies.Title}</option>`);
-    i++;
+    let $option = $(`<option value="${movies.Title}">${movies.Title}</option>`);
+    
     $('#movies').append($option);
   }  
 };  
@@ -38,13 +38,20 @@ function showMoviePoster(collection,className) {
   for (let document of collection) {
 
     let $document = $(`<div class="${className}">
-  <img class="biljettPoster" src=${document.Poster} onclick="createCalendar(value)" />
+  <img class="biljettPoster" src=${document.Poster} onclick="showAvailableTimes('${document.Title}')" />
   </div>
   `);
     
     $('.moviePoster').append($document);
     
   }
+};
+
+async function showAvailableTimes(title){ 
+  let screenings = await $.getJSON("/json/visningar.json");
+  let titleScreenings = screenings.filter(screening =>  screening.titel === title)
+  console.log(titleScreenings);
+
 }
 
 
