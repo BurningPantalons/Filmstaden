@@ -10,10 +10,9 @@ pickMovie();
 
 async function pickMovie(){
   let jsonMovies = await $.getJSON("/json/filmer.json");
-  let $option;
   let i = 0;
   for (let movies of jsonMovies) {
-    $option = $(`<option value="${i}">${movies.Title}</option>`)
+    let $option = $(`<option value="${i}">${movies.Title}</option>`)
     i++;
     $('#movies').append($option);
   }  
