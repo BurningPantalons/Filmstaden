@@ -148,7 +148,7 @@ iframe {
 .poster {
   display:flex;
   justify-content: flex-start;
-  width: 250px;
+  height: 400px;
   margin-left: 1%;
   margin-right: 4%;
 }
