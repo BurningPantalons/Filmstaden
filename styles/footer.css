@@ -35,12 +35,22 @@
   font-family: 'Poiret One', cursive;
   font-size: 58px;
   color:white;
+  text-decoration: none;
 }
+
+.homebutton:hover{
+  font-family: 'Poiret One', cursive;
+  font-size: 58px;
+  color:white;
+  text-decoration: underline;
+}
+
 
 .homebutton:visited{
   font-family: 'Poiret One', cursive;
   font-size: 58px;
   color:white;
+  text-decoration: none;
 }
 
 .footer .col ul {
