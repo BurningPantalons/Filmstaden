@@ -2,7 +2,7 @@ async function readMovieJson() {
   let movie = "movie";
   let jsonMovies = await $.getJSON("/json/filmer.json");
   showMovieAsHtml(jsonMovies, movie);
-  
+
   console.log(jsonMovies);
 }
 
@@ -14,15 +14,14 @@ readMovieJson();
 function showMovieAsHtml(collection, className) {
 
   for (let document of collection) {
-   
-   let $document =  $(`<div class="${className}">
+
+    let $document = $(`<div class="${className}">
   <img class="poster" src=${document.Poster} />
 
   <div class="MovieText">
-   <h1 class="Title">${document.Title}</h1>
-   <div>
+   <h1 class="Title">${document.Title}   (${document.Year})</h1>
    <p class="Released"> Premiär: ${document.Released} </p> 
-   <p class="Synopsis"> Handling: ${document.Plot} </p> 
+   <p class="Synopsis"> ${document.Plot} </p> 
    <p class="Genre"> Genre: ${document.Genre} </p> 
    </div>
    <div class="ButtonContainer">
@@ -33,16 +32,16 @@ function showMovieAsHtml(collection, className) {
   </div>
 </div>`);
 
-     $('.MovieMain').append($document);
-    
-   
-}
+    $('.MovieMain').append($document);
+
+
+  }
 }
 
 function navigateToMovieInfo(MovieId) {
-  sessionStorage.setItem("movie",MovieId)
+  sessionStorage.setItem("movie", MovieId)
   window.location = `detaljsida.html?${MovieId}`
-  
+
 }
 
 

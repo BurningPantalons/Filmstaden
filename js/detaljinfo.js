@@ -17,12 +17,10 @@ async function showMovieInfo() {
 
   <img class="poster" src=${movie.Poster} />
   <div class="InfoText">
-   <h1 class="Title">${movie.Title}</h1>
-   <div>
+   <h1 class="Title">${movie.Title}  (${movie.Year})</h1>
+
    <p class="writer"> Writers : ${movie.Writers} </p> 
    <p class="director"> Director: ${movie.Director} </p> 
-   <p class="imdb"> ImdbRating: ${movie.imdbRating} </p>
-   <p class=imdbVotes> ImdbVotes: ${movie.imdbVotes} </p> 
    </div>
    </div>`);
 
