@@ -50,7 +50,8 @@ function showMoviePoster(collection,className) {
 
 
 
-async function showAvailableTimes(title){ 
+async function showAvailableTimes(title) { 
+  
   let screenings = await $.getJSON("/json/visningar.json");
   screenings = screenings.filter(scr => scr.titel === title);
   
@@ -62,20 +63,13 @@ async function showAvailableTimes(title){
     `);
     $('.pickScreening').html($document);
   
-  
-  
-   
-
+    
   for (const [key, value] of Object.entries(screenings)) { 
     let $option = $(`<option value="${value.datum}_${value.tid}_${value.salong}_${value.titel}">${value.datum} ${value.tid} Salong ${value.salong}</option>`);
     
     $('#visning').append($option);
-  }
-  
-  
-  
-
-}
+  } 
+  };
 
 function selectedScreening(e) {
   
