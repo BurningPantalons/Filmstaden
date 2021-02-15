@@ -20,7 +20,7 @@ async function readVisiningJson() {
   console.log(result);
 }
 
-/* test sqlite2 */ 
+/* test sqlite2 3 */ 
 
 
 
