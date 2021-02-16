@@ -1,16 +1,15 @@
 connectToExpress();
 
 
-/* SQLITE */
-// const sqlite3 = require('sqlite3').verbose();
+/* SQLITE 
+The basic functionality of require is that it reads a JavaScript file, 
+executes the file, and then proceeds to return the exports object. 
+*/
 
-// let db = new sqlite3.Database('./db/database2');
-
-
+let startDatabase = require('./backend/tables.js');
 
 
 /* EXPRESS */
-
 function connectToExpress() {
 
   const express = require('express');

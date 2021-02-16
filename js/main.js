@@ -1,4 +1,3 @@
-
 async function readSalongJson() {
   let jsonSalong = await $.getJSON("/json/salonger.json");
   console.log(jsonSalong);

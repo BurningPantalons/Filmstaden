@@ -1,9 +1,28 @@
+initDb();
 
-const sqlite3 = require('sqlite3').verbose();
+function initDb() {
+  try {
+    let database = 'database2';
+    const sqlite3 = require('sqlite3').verbose();
 
-let db = new sqlite3.Database('./db/database2');
+    /* Creating a new, or connecting to existing database */
+    db = new sqlite3.Database(`./db/${database}`);
 
-console.log('Connected to the database2 SQLite databse');
+    console.log(`Connected to the ${database} SQLite databse`);
+  }
+  catch (e) {
+    console.log('Something went wrong. Check database options');
+    console.error(e);
+  }
+}
+
+
+//testInsert(db);
+function testInsert(db) {
+  db.run(/*sql*/ `insert into users(fornamn, efternamn, email, password) VALUES ('Eveee', 'Garysson', 'Eeveeman@test.com', 'flareon007');`);
+  console.log('Sent data to users');
+  db.close();
+}
 
 //createUsers(db);
 function createUsers(db) {
