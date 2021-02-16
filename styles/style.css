@@ -3,6 +3,7 @@
 @import url(salong.css);
 @import url(detaljsida.css); 
 @import url(footer.css);
+@import url(biljetter.css);
 
 body {
   background-color: rgb(44, 44, 44);
@@ -262,4 +263,19 @@ iframe {
   margin-top: auto;
  }
 
+.moviePoster{
+  display: flex;
+}
  
+.colposter{
+ flex: 20%;
+  padding: 5px;
+}
+
+.biljettPoster{
+ border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 200px;
+  cursor:pointer;
+}
