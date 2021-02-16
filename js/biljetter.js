@@ -3,7 +3,7 @@
 let filmval = $(`
   <div class="filmval">
     <label for="movies">Välj film:</label>
-    <select name="movies" id="movies" onchange="createCalendarDays(); pickTime(value); showAvailableTimes(value)"></select>
+    <select name="movies" id="movies" onchange="pickTime(value); showAvailableTimes(value)"></select>
   </div>`);
   
 $('.pickMovie').append(filmval);
@@ -78,6 +78,27 @@ function selectedScreening(e) {
   console.log(screening)
 
 }
+
+/*
+async function appendAvailableSeats(title, time, room, date) {
+    selectedScreening = {title, time, room, date};
+    let rooms = await $.getJSON("/json/salonger.json");
+    selectedRoom = rooms.filter(r => r.name === room)[0]
+    
+    let html = `<div class="seats"><div>Selected seats: <div class="selectedSeats"></div></div>`
+
+    let seatNr = 1;
+    selectedRoom.seatsPerRow.forEach(rowSize => {
+        html = html + `<div class="seatRow">`
+        for(let i = 0; i < rowSize; i++) {
+            html = html + (`<input class="checkbox" type="checkbox" value="${seatNr}">` +`<label>${seatNr}</label>`);
+            seatNr++;
+        }
+        html = html + `</div></br>`
+    })
+html = html + `</div>`
+    $(".pickScreening").html(html);
+}*/
 
 
 
