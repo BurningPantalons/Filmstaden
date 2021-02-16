@@ -1,10 +1,4 @@
 
-/* Hämtar JSON-data från fil och lägger i variabel jsonMovies */
-/* Kör sedan funktionen showDocumentAsHtml() med argumentet jsonMovies */
-
-/*flyttad till filmer.js - David*/
-
-/*Läs in JSON för visningar, Loopa igenom och gör en visningslista*/
 async function readSalongJson() {
   let jsonSalong = await $.getJSON("/json/salonger.json");
   console.log(jsonSalong);
@@ -20,7 +14,6 @@ async function readVisiningJson() {
   console.log(result);
 }
 
-/* test sqlite2 3 */ 
 
 
 
