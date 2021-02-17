@@ -25,7 +25,7 @@ function showSalongerAsHtml(collection) {
           $salong.append('<div class="rowhead">' + "Rad " + row + '</div>');
           let $row = $('<div class="row"></div>');
           for (let seat = 1; seat < numOfSeats[row]; seat++) {
-            $row.append(`<input class="checkbox" type="checkbox" value="${seat}">` +`<label>${seat}</label>`);
+            $row.append(`<div><input class="checkbox" type="checkbox" value="${seat}">`+`<label></label></div>`);
             $salong.append($row);
           }
         }

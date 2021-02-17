@@ -20,13 +20,6 @@
     font-family: 'Red Hat Display', sans-serif;
 }
   
-.row {
-    text-align:center;
-    border: 1px solid black;
-    height: 50px;
-    width: 100%;
-}
-  
 .rowhead {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align:center;
@@ -34,46 +27,58 @@
     margin-top:3%;
 }
 
-  
-input[type="checkbox"] {
-    z-index: 2;
-    opacity: 0;
-    width: 30px;
-    height: 25px;
-    
+.row {
+    display: flex;
+    justify-content: space-between;
+    /*text-align:center;*/
+    border: 1px solid black;
+    height: 50px;
+    width: 100%;
 }
 
-  
-input[type="checkbox"] + label {
+.row > div{
+    min-width: 11%;
+    max-width: 20%;
+
+}
+
+label{
+    display: block;
     background-color: rgb(220, 214, 214);
-    color: black;
-    padding: 8px;
-    margin-left: -30px;
-    z-index: 1;
     border: 4px outset silver;
     border-bottom-left-radius: 25%;
     border-bottom-right-radius: 25%;
     border-top: none;
-    
+    z-index: 1;
+    width: 25px;
+    height: 25px;
+    margin-left: 0%;
+    margin-top: -60%;
 }
 
-input[type="checkbox"] + label:hover{
+input{
+    margin-left: 6%;
+    margin-top: 25%;
+    z-index: 2;
+    opacity: 0.2;
+    width: 25px;
+    height: 25px;
+}
+
+input:hover + label {
   background-color: rgb(155, 150, 150);
 }
 
-input[type="checkbox"]:checked + label {
+input:checked + label{
     background-color: crimson;
-    color: white;
 }
 
-input[type="checkbox"]:checked + label:hover{
+input:checked:hover + label{
   background-color: rgb(159, 20, 47);
 }
 
-
-input[type="checkbox"]:disabled + label {
+input:disabled + label {
     background-color: darkgray;
     color: darkgray;
     border-color: transparent;
 }
-  
