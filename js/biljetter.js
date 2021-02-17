@@ -1,5 +1,12 @@
 
 
+
+pickMovie();
+
+async function pickMovie(){
+  let jsonMovies = await $.getJSON("/json/filmer.json");
+
+  
 let filmval = $(`
   <div class="filmval">
     <label for="movies">Välj film:</label>
@@ -7,11 +14,6 @@ let filmval = $(`
   </div>`);
   
 $('.pickMovie').append(filmval);
-
-pickMovie();
-
-async function pickMovie(){
-  let jsonMovies = await $.getJSON("/json/filmer.json");
   
   for (let movies of jsonMovies) {
     let $option = $(`<option value="${movies.Title}">${movies.Title}</option>`);
@@ -76,14 +78,14 @@ function selectedScreening(e) {
     let data = $("#visning").val().split("_")
   let screening = { datum: data[0], tid: data[1], salong: data[2], titel: data[3] }
   console.log(screening)
-
+  appendAvailableSeats(screening.titel,screening.tid,screening.salong,screening.datum)
 }
 
-/*
-async function appendAvailableSeats(title, time, room, date) {
-    selectedScreening = {title, time, room, date};
+
+async function appendAvailableSeats(title, time, sal, date) {
+    selectedScreening = {title, time, sal, date};
     let rooms = await $.getJSON("/json/salonger.json");
-    selectedRoom = rooms.filter(r => r.name === room)[0]
+    selectedRoom = rooms.filter(r => r.name === sal)[0]
     
     let html = `<div class="seats"><div>Selected seats: <div class="selectedSeats"></div></div>`
 
@@ -97,8 +99,8 @@ async function appendAvailableSeats(title, time, room, date) {
         html = html + `</div></br>`
     })
 html = html + `</div>`
-    $(".pickScreening").html(html);
-}*/
+    $(".pickSeat").html(html);
+}
 
 
 
