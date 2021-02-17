@@ -26,6 +26,34 @@
       </div>
 
       <div class="calendarDiv"></div>
+
+
+      <!-- Design av biljett -->
+      <!-- Detta ska genereras i .js filen istället -->
+      <div class="ticketDiv">
+        <img class="poster" src=${document.Poster} />
+
+        <div class="MovieText">
+          <h1 class="Title">${document.Title} (${document.Year})</h1>
+          <p class="Released"> Premiär: ${document.Released} </p>
+          <p class="Synopsis"> ${document.Plot} </p>
+          <p class="Genre"> Genre: ${document.Genre} </p>
+          <p class="movieTime"> Tid: ${document.Genre} </p>
+          <p class="movieDate"> Datum: ${document.Genre} </p>
+        </div>
+
+        <div class="ticketContainer">
+          <button onclick="location.href='/html/platsbokning.html?${document.MovieId}'" class="ticketButton"
+            type="button">Boka
+            Biljett</button>
+        </div>
+
+
+
+
+      </div>
+
+
     </main>
 
     <!--Här vill vi ha scriptet som kör biljettbokning, med avgränsning för Film, Datum, Tid, och antal biljetter /D-->
