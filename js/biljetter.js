@@ -99,7 +99,7 @@ async function appendAvailableSeats(title, time, sal, date) {
         html = html + `</div></br>`
     })
 html = html + `</div>`
-    $(".pickSeat").html(html);
+    $(".pickScreening").html(html);
 }
 
 
