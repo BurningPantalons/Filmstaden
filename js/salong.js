@@ -13,7 +13,7 @@ function showSalongerAsHtml(collection) {
 
       if (key == "name") {
       $salong.append('<div class="salongName"> <span>' + value + '</div>');
-      $salong.append('<div class="filmduk">');
+      $salong.append('<h3> FILMDUK </h3> <div class="filmduk">' + '</div>');
 
 
       }
@@ -22,7 +22,7 @@ function showSalongerAsHtml(collection) {
         let numOfSeats = value;
 
         for (let row = 1; row < numOfSeats[row]; row++) {
-          $salong.append('<div class="rowhead">' + "Rad " + row + '</div>');
+          $salong.append('<div class="rowhead">' + "RAD " + row + '</div>');
           let $row = $('<div class="row"></div>');
           for (let seat = 1; seat < numOfSeats[row]; seat++) {
             $row.append(`<div><input class="checkbox" type="checkbox" value="${seat}">`+`<label></label></div>`);
@@ -34,7 +34,7 @@ function showSalongerAsHtml(collection) {
     }
 
     $('.BookingMain').append($salong);
-    $('.BookingMain').append("<br>");
+
 
   }
 }
