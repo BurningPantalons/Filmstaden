@@ -4,6 +4,7 @@ async function showMovieInfo() {
 
   let movie = jsonMovies.filter(obj => obj.MovieId === movieId)[0]
 
+
   let $title = $(`<title>${movie.Title}</title>`);
 
   let $trailer = $(`<div class="trailerDiv"> 

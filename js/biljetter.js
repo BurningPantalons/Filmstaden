@@ -4,42 +4,40 @@
 pickMovie();
 
 async function pickMovie(){
-  let jsonMovies = await $.getJSON("/json/filmer.json");
+  let jsonMovies = await $.getJSON("/json/filmer.json");  /*läser in json.filmer*/
 
   
-let filmval = $(`
+let filmval = $(/*html*/`
   <div class="filmval">
-    <label for="movies">Välj film:</label>
+    <label for="movies">Välj film:</label>  
     <select name="movies" id="movies" onchange="pickTime(value); showAvailableTimes(value)"></select>
-  </div>`);
+  </div>`);  
+
+  /* Rad 10-14 filmval skapar html struktur med en selectlista av filmer */
   
-$('.pickMovie').append(filmval);
+$('.pickMovie').append(filmval); 
   
   for (let movies of jsonMovies) {
-    let $option = $(`<option value="${movies.Title}">${movies.Title}</option>`);
+    let $option = $(`<option value="${movies.Title}">${movies.Title}</option>`); /* loopar igenom filmerna vi läst in från jsonMovies, Tar title värdet och appendar det på vår select med namn "movies" */
     
-    $('#movies').append($option);
+    $('#movies').append($option); 
   }  
 };  
 
 function pickTime(value) {
-  console.log(value);
+  console.log(value); 
 }
 
-async function readMovie() {
-  let poster = "colPoster";
-  let jsonMovies = await $.getJSON("/json/filmer.json");
 
-  showMoviePoster(jsonMovies,poster);
-  
-}
-readMovie();
+showMoviePoster();
 
-function showMoviePoster(collection,className) {
+async function showMoviePoster() {
+   
+  let movies = await $.getJSON("/json/filmer.json"); /* läser in json.filmer */
 
-  for (let document of collection) {
+  for (let document of movies) {  /*loopar igenom filmer och tar ut varje poster värde som är en bild och lägger den i en img tag */
 
-    let $document = $(`<div class="${className}">
+    let $document = $(/*html*/`<div class="colPoster">
   <img class="biljettPoster" src=${document.Poster} onclick="showAvailableTimes('${document.Title}')" />
   </div>
   `);
@@ -54,46 +52,48 @@ function showMoviePoster(collection,className) {
 
 async function showAvailableTimes(title) { 
   
-  let screenings = await $.getJSON("/json/visningar.json");
-  screenings = screenings.filter(scr => scr.titel === title);
+  let screenings = await $.getJSON("/json/visningar.json"); /* läser in json.visningar */
+
+  screenings = screenings.filter(scr => scr.titel === title); /*Matchar den titeln vi får som parameter i funktionsanropet med alla titlar i visningar som vi läser in skapar en ny array med alla matchningar. */
   
- let $document = $(`<div class="scrSelect">
+ let $document = $(/*html*/`<div class="scrSelect">
     <label for="visning">Välj visning:</label>
     <select name="visning" id="visning" onchange="selectedScreening()">     
     </select>
     </div>
     `);
-    $('.pickScreening').html($document);
+  $('.pickScreening').html($document);
   
+  /*html struktur rad 59-64 där vi skapar en select lista med visningar */
     
   for (const [key, value] of Object.entries(screenings)) { 
     let $option = $(`<option value="${value.datum}_${value.tid}_${value.salong}_${value.titel}">${value.datum} ${value.tid} Salong ${value.salong}</option>`);
     
     $('#visning').append($option);
   } 
-  };
+  };  /*loopar igenom de matchningar vi får från screenings och plockar ut värdena och lägger i vår select "visning" */
 
-function selectedScreening(e) {
+function selectedScreening() {
   
-    let data = $("#visning").val().split("_")
-  let screening = { datum: data[0], tid: data[1], salong: data[2], titel: data[3] }
+  let data = $("#visning").val().split("_") /*Data hämtar värden från vald visning i vår select"visning" och lägger i en array */
+  let screening = { datum: data[0], tid: data[1], salong: data[2], titel: data[3] } /*screening pekar på objektet så vi kan plocka ut de värden vi vill */
   console.log(screening)
-  appendAvailableSeats(screening.titel,screening.tid,screening.salong,screening.datum)
+  appendAvailableSeats(screening.salong)
 }
 
 
-async function appendAvailableSeats(title, time, sal, date) {
-    selectedScreening = {title, time, sal, date};
-    let rooms = await $.getJSON("/json/salonger.json");
-    selectedRoom = rooms.filter(r => r.name === sal)[0]
+async function appendAvailableSeats(sal) { 
+   
+    let saloon = await $.getJSON("/json/salonger.json"); /*Läser in json.salonger */
+    selectedRoom = saloon.filter(r => r.name === sal)[0] /* matchar salong namnen från salonger.json med parametern sal som får värdet efter vald visning, Hämtar första objektet från arrayen som skapas*/
     
-    let html = `<div class="seats"><div>Selected seats: <div class="selectedSeats"></div></div>`
+  let html = "";
 
     let seatNr = 1;
-    selectedRoom.seatsPerRow.forEach(rowSize => {
-        html = html + `<div class="seatRow">`
-        for(let i = 0; i < rowSize; i++) {
-            html = html + (`<input class="checkbox" type="checkbox" value="${seatNr}">` +`<label>${seatNr}</label>`);
+    selectedRoom.seatsPerRow.forEach(rowSize => { /* för varje rad skapar vi en div */
+        html = html + `<div class="seatRow">` 
+        for(let i = 0; i < rowSize; i++) { /* för varje iteration i raden/rowSize skapar vi en checkbox med ett värde*/
+            html = html + (/*html*/`<input class="checkbox" type="checkbox" value="${seatNr}">` +`<label>${seatNr}</label>`);
             seatNr++;
         }
         html = html + `</div></br>`
