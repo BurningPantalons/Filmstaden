@@ -53,20 +53,10 @@ h3 {
 
 .row > div {
     display: grid;
-<<<<<<< HEAD
     justify-content: center;
     align-items: center;
-    /* min-width: 11%;
-    max-width: 20%; */
-    flex: 1 1 30px; /*sets flex grow = 0, flex shrink= 1 and flex basis= 30px*/
-=======
-    
-    justify-content: center;
-    align-items: center;
-    min-width: 11%;
-    max-width: 20%;
-
->>>>>>> main
+    min-width: 9%;
+    flex: 0 1 30px; /*sets flex grow = 0, flex shrink= 1 and flex basis= 30px*/
 }
 
 label{
@@ -77,18 +67,11 @@ label{
     border-bottom-right-radius: 25%;
     border-top: none;
     z-index: 1;
-<<<<<<< HEAD
     width: 30px; 
     height: 30px;
     grid-column: 1;
     grid-row: 1;
  
-=======
-    width: 30px;
-    height: 30px;
-    grid-column: 1;
-    grid-row: 1;
->>>>>>> main
 }
 
 input{
@@ -98,10 +81,7 @@ input{
     height: 35px;
     grid-column: 1;
     grid-row: 1;
-<<<<<<< HEAD
     
-=======
->>>>>>> main
 }
 
 input:hover + label {
@@ -132,23 +112,13 @@ input:disabled + label {
 
 .row {
     justify-content: space-evenly;
-<<<<<<< HEAD
    
-=======
->>>>>>> main
 }
 
 .row > div{
     min-width: 8%;
     max-width: 10%;
-<<<<<<< HEAD
    
 }
 
-=======
-
-}
-
-
->>>>>>> main
 }
