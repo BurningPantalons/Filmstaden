@@ -21,7 +21,13 @@ async function showMovieInfo() {
 
   let movie = jsonMovies.filter(obj => obj.MovieId === movieId)[0]
 
-  let $title = $(/*html*/`<title>${movie.Title}</title>`);
+
+  let $title = $(`<title>${movie.Title}</title>`);
+
+  let $trailer = $(`<div class="trailerDiv"> 
+  <iframe width="1908" height="810" src="${movie.Trailer}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div >
+  `);
 
   let $trailer = $(/*html*/`<div class="trailerDiv"> 
     <iframe 
