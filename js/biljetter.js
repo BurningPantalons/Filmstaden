@@ -93,14 +93,41 @@ async function appendAvailableSeats(sal) {
     selectedRoom.seatsPerRow.forEach(rowSize => { /* för varje rad skapar vi en div */
         html = html + `<div class="seatRow">` 
         for(let i = 0; i < rowSize; i++) { /* för varje iteration i raden/rowSize skapar vi en checkbox med ett värde*/
-            html = html + (/*html*/`<input class="checkbox" type="checkbox" value="${seatNr}">` +`<label>${seatNr}</label>`);
+            html = html + (/*html*/`<input class="checkbox" type="checkbox" name="seat" value="${seatNr}">` +`<label>${seatNr}</label>`);
             seatNr++;
         }
         html = html + `</div></br>`
     })
-html = html + `</div>`
-    $(".pickScreening").html(html);
+    html = html + `<button id="seatBtn">Get Selected Seat</button></div>` /*skapar en button */ 
+  $(".pickScreening").html(html);
+
+  const seatBtn = document.querySelector('#seatBtn'); /* tar tag i seatBtn*/
+
+seatBtn.addEventListener('click', (event) => {  /*lyssnar när vi klickar på seatBtn och kallar på metod som kollar vilka säten som är iklickade och skriver ut värdena i en alert. */
+  alert("Du har bokat säten " + getSelectedSeatValue("seat") + " till (film)(datum)(tid)(salong)");
+
+});
+  
+
 }
+
+
+
+function getSelectedSeatValue(seat) { 
+  const checkBoxes = document.querySelectorAll(`input[name="${seat}"]:checked`); /*tar tag i de säten som i iklickade */
+  let values = [];
+  checkBoxes.forEach((checkbox) => { /*varje varje iklickat säte sätter vi in dess värde i values[] */
+    values.push(checkbox.value);
+
+  });
+  return values;
+}
+
+
+
+
+
+
 
 
 
