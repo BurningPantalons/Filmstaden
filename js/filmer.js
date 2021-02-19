@@ -38,16 +38,16 @@ function showMovieAsHtml(collection, className) {
 
         <!-- Button runs function below --> 
         <button 
-        onclick="navigateToMovieInfo('${document.MovieId}')"
-        class="movieButton"
-        type="button">Läs Mer
+          onclick="navigateToMovieInfo('${document.MovieId}')"
+          class="movieButton"
+          type="button">Läs Mer
         </button>
 
-        <!-- todo> #3 ! NEED TO CHANGE href TO BILJETTER ! --> 
+        <!-- todo> #4 # ! NEED TO CHANGE href TO BILJETTER ! --> 
         <button 
-        onclick="location.href='/html/platsbokning.html?${document.MovieId}'"
-        class="movieButton"
-        type="button">Boka Biljett
+          onclick="location.href='/html/platsbokning.html?${document.MovieId}'"
+          class="movieButton"
+          type="button">Boka Biljett
         </button>
 
       </div>

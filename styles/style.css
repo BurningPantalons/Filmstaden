@@ -10,9 +10,8 @@ body {
 }
 
 .site {
-    margin-left: 8%;
-    margin-right: 8%;
-
+    margin-left: 20vh;
+    margin-right: 20vh;
 }
 
 h1{
@@ -278,4 +277,57 @@ iframe {
   padding: 5px;
   width: 200px;
   cursor:pointer;
+}
+
+
+@media only screen and (max-width: 600px) {
+  body {
+    margin-left: 0vh;
+    margin-right: 0vh;
+    padding: 0vh;
+}
+.site {
+    margin: 0vh;
+    padding: 0vh;
+}
+
+}
+
+@media only screen and (min-width: 601px) {
+  body {
+    margin-left: 0vh;
+    margin-right: 0vh;
+    padding: 0vh;
+}
+.site {
+    margin: 0vh;
+    padding: 0vh;
+}
+
+
+@media only screen and (min-width: 1000px) {
+  body {
+    margin-left: 8vh;
+    margin-right: 8vh;
+    padding: 0vh;
+}
+.site {
+    margin: 0vh;
+    padding: 0vh;
+}
+
+@media only screen and (min-width: 1200px) {
+  body {
+    margin-left: 14vh;
+    margin-right: 14vh;
+    padding: 0vh;
+}
+.site {
+    margin: 0vh;
+    padding: 0vh;
+}
+
+
+
+
 }
