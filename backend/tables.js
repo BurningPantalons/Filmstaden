@@ -1,13 +1,29 @@
 
+ 
+ 
+ 
+
+
+
+
+ // THIS DOCUMENT IS NOT IN USE 
+ // 
+ // ONLY A LIBRARY OF FUNCTIONS
+ 
+
+
+
+
+ 
  //testInsert
  async function testInsert(db) {
   await db.run(/*sql*/ `insert into users(fornamn, efternamn, email, password) VALUES ('Fisken', 'Termosson', 'fangamig@test.com', 'fiskesposuger21');`);
   console.log('Sent data to users');
 }
 
-//createUsers(db);
-function createUsers(db) {
-  db.run(/*sql*/`create table users(
+//createUsers();
+async function createUsers() {
+ await db.run(/*sql*/`create table users(
    id int auto_increment,
    fornamn varchar(100) not null,
    efternamn varchar(100) not null,
@@ -16,23 +32,21 @@ function createUsers(db) {
    primary key(id)
 );`);
   console.log('Created table users');
-  db.close();
 }
 
 //createSalong(db);
-function createSalong(db) {
-  db.run(/*sql*/`create table salonger(
+async function createSalong(db) {
+  await db.run(/*sql*/`create table salonger(
     id int auto_increment,
     name varchar(100),
     primary key (id)
 );`);
   console.log('Created table salong');
-  db.close();
 }
 
 //createStolar(db);
-function createStolar(db) {
-  db.run(/*sql*/`create table stolar(
+async function createStolar(db) {
+  await db.run(/*sql*/`create table stolar(
     id int auto_increment,
     status boolean,
     visning_id int,
@@ -42,12 +56,11 @@ function createStolar(db) {
     primary key (id)
 );`);
   console.log('Created table stolar');
-  db.close();
 }
 
 //createVisningar(db);
-function createVisningar(db) {
-  db.run(/*sql*/`create table visningar(
+async function createVisningar(db) {
+  await db.run(/*sql*/`create table visningar(
   id int auto_increment, 
   datum datetime,
   tid time,
@@ -58,22 +71,20 @@ function createVisningar(db) {
   primary key (id)
 );`);
   console.log('Created table visningar');
-  db.close();
 }
 
 //createFilmer(db);  //tveksam om denna behövs?
-function createFilmer(db) {
-  db.run(/*sql*/`create table filmer( 
+async function createFilmer(db) {
+  await db.run(/*sql*/`create table filmer( 
   id int auto_increment,
   title varchar(100), primary key (id)
 );`);
   console.log('Created table filmer');
-  db.close();
 }
 
 //createBokningar(db);
-function createBokningar(db) {
-  db.run(/*sql*/`create table bokningar(
+async function createBokningar(db) {
+  await db.run(/*sql*/`create table bokningar(
     id int auto_increment,
     user_id int,
     stol_id int,
@@ -83,13 +94,12 @@ function createBokningar(db) {
     primary key (id)
 );`);
   console.log('Created table bokningar');
-  db.close();
 }
 
 
 //createBiljetter(db);
-function createBiljetter(db) {
-  db.run(/*sql*/`create table biljetter(
+async function createBiljetter(db) {
+  await db.run(/*sql*/`create table biljetter(
     id int auto_increment,
     bokning_id int,
     typ varchar(50),
@@ -102,37 +112,4 @@ function createBiljetter(db) {
     primary key (id)
   );`);
   console.log('Created table biljetter');
-  db.close();
 }
-
-
-
-/*
-initDb();
-
- async function initDb() {
-
-  try {
-
-  // Require bestSqlite
-    require('best-sqlite3-frontend');
-    const bestSqlite = require('best-sqlite3');
-    //const sqlite3 = require('sqlite3').verbose();
-    
-    const database = 'database2';
-
-
-    const db = await bestSqlite.connect(`./db/${database}`);
-
-
-    //db = new sqlite3.Database(`./db/${database}`);
-
-    console.log(`Connected to the ${database} SQLite databse`);
-  
-}
-  catch (e) {
-    console.log('Something went wrong. Check database options');
-    console.error(e);
-  }
-}
-*/
