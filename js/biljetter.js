@@ -1,4 +1,4 @@
-
+let choosenScreening = {};
 
 
 pickMovie();
@@ -53,7 +53,7 @@ async function showMoviePoster() {
 async function showAvailableTimes(title) { 
   
   let screenings = await $.getJSON("/json/visningar.json"); /* läser in json.visningar */
-
+  
   screenings = screenings.filter(scr => scr.titel === title); /*Matchar den titeln vi får som parameter i funktionsanropet med alla titlar i visningar som vi läser in skapar en ny array med alla matchningar. */
   
  let $document = $(/*html*/`<div class="scrSelect">
@@ -76,7 +76,8 @@ async function showAvailableTimes(title) {
 function selectedScreening() {
   
   let data = $("#visning").val().split("_") /*Data hämtar värden från vald visning i vår select"visning" och lägger i en array */
-  let screening = { datum: data[0], tid: data[1], salong: data[2], titel: data[3] } /*screening pekar på objektet så vi kan plocka ut de värden vi vill */
+  let screening = { datum: data[0], tid: data[1], salong: data[2], titel: data[3] }  /*screening pekar på objektet så vi kan plocka ut de värden vi vill */
+  choosenScreening = {...screening}
   console.log(screening)
   appendAvailableSeats(screening.salong)
 }
@@ -104,7 +105,7 @@ async function appendAvailableSeats(sal) {
   const seatBtn = document.querySelector('#seatBtn'); /* tar tag i seatBtn*/
 
 seatBtn.addEventListener('click', (event) => {  /*lyssnar när vi klickar på seatBtn och kallar på metod som kollar vilka säten som är iklickade och skriver ut värdena i en alert. */
-  alert("Du har bokat säten " + getSelectedSeatValue("seat") + " till (film)(datum)(tid)(salong)");
+  alert("Du har bokat säten " + getSelectedSeatValue("seat") +`${choosenScreening.titel} ${choosenScreening.datum} ${choosenScreening.tid} ${choosenScreening.salong}` );
 
 });
   
@@ -116,11 +117,13 @@ seatBtn.addEventListener('click', (event) => {  /*lyssnar när vi klickar på se
 function getSelectedSeatValue(seat) { 
   const checkBoxes = document.querySelectorAll(`input[name="${seat}"]:checked`); /*tar tag i de säten som i iklickade */
   let values = [];
+  console.log(choosenScreening)
   checkBoxes.forEach((checkbox) => { /*varje varje iklickat säte sätter vi in dess värde i values[] */
     values.push(checkbox.value);
 
   });
   return values;
+  
 }
 
 
