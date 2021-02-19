@@ -1,27 +1,8 @@
-initDb();
 
-function initDb() {
-  try {
-    let database = 'database2';
-    const sqlite3 = require('sqlite3').verbose();
-
-    /* Creating a new, or connecting to existing database */
-    db = new sqlite3.Database(`./db/${database}`);
-
-    console.log(`Connected to the ${database} SQLite databse`);
-  }
-  catch (e) {
-    console.log('Something went wrong. Check database options');
-    console.error(e);
-  }
-}
-
-
-//testInsert(db);
-function testInsert(db) {
-  db.run(/*sql*/ `insert into users(fornamn, efternamn, email, password) VALUES ('Eveee', 'Garysson', 'Eeveeman@test.com', 'flareon007');`);
+ //testInsert
+ async function testInsert(db) {
+  await db.run(/*sql*/ `insert into users(fornamn, efternamn, email, password) VALUES ('Fisken', 'Termosson', 'fangamig@test.com', 'fiskesposuger21');`);
   console.log('Sent data to users');
-  db.close();
 }
 
 //createUsers(db);
@@ -123,3 +104,35 @@ function createBiljetter(db) {
   console.log('Created table biljetter');
   db.close();
 }
+
+
+
+/*
+initDb();
+
+ async function initDb() {
+
+  try {
+
+  // Require bestSqlite
+    require('best-sqlite3-frontend');
+    const bestSqlite = require('best-sqlite3');
+    //const sqlite3 = require('sqlite3').verbose();
+    
+    const database = 'database2';
+
+
+    const db = await bestSqlite.connect(`./db/${database}`);
+
+
+    //db = new sqlite3.Database(`./db/${database}`);
+
+    console.log(`Connected to the ${database} SQLite databse`);
+  
+}
+  catch (e) {
+    console.log('Something went wrong. Check database options');
+    console.error(e);
+  }
+}
+*/

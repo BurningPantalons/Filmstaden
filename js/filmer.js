@@ -1,6 +1,5 @@
 readMovieJson();
 
-
 /* The async keyword is added to functions
 to tell them to return a promise rather than 
 directly returning the value.*/ 
@@ -45,7 +44,7 @@ function showMovieAsHtml(collection, className) {
 
         <!-- todo> #4 # ! NEED TO CHANGE href TO BILJETTER ! --> 
         <button 
-          onclick="location.href='/html/platsbokning.html?${document.MovieId}'"
+          onclick="location.href='/html/platsbokning.html?${document.MovieId}', testPreparedHere('Eveee')"
           class="movieButton"
           type="button">Boka Biljett
         </button>
@@ -58,6 +57,15 @@ function showMovieAsHtml(collection, className) {
   }
 }
 
+async function testPreparedHere(fornamn) {
+  let stmt = await db.run(`
+  SELECT * FROM users WHERE fornamn = $fornamn`, {
+    $fornamn: fornamn 
+  });
+  console.log(stmt);
+  console.table(stmt);
+  }
+
 /*
 "movie" is a key
 and holds the value assigned.
@@ -68,10 +76,6 @@ function navigateToMovieInfo(MovieId) {
   window.location = `detaljsida.html?${MovieId}`
 
 }
-
-
-
-
 
 
 
