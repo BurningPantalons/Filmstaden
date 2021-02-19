@@ -54,7 +54,7 @@ async function readFooter() {
             <li><img src="" width="32" style="width: 32px;"></li>
             <li><img src="" width="32" style="width: 32px;"></li>
             <li><img src="" width="32" style="width: 32px;"></li>
-            <a href="/html/index.html" class="homebutton">BIO
+            <a href="/index.html" class="homebutton">BIO
             </a>
           </ul>
         </div>

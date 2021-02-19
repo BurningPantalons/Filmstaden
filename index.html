@@ -7,13 +7,14 @@
   <title>Filmstaden</title>
   <link rel="stylesheet" href="/styles/style.css">
   <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
 </head>
 
 <body>
 
   <div class="site">
     <div class="menyrad">
-      <span class="homebutton" id="active"><a href="/html/index.html">BIO</a></span>
+      <span class="homebutton" id="active"><a href="/index.html">BIO</a></span>
       <span class="menubutton"><a href="/html/biljetter.html">BILJETTER</a></span>
       <span class="menubutton"><a href="/html/filmer.html">FILMER</a></span>
       <span class="user_login"> <a href="/html/filmer.html">Logga in</a></span>
@@ -47,11 +48,22 @@
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
     </script>
     <script src="/js/biljetter.js"></script>
+
+ <!-- 
+  Note: 
+  As you can see we include a script called best-sqlite3-frontend.js in our index.html file. 
+  That script is not present in our ./ (root)-folder 
+  - instead it is created by the server and gives your frontend code access to an object called db 
+  - so don't use db as one of your own variable names!
+-->
+ <script src="/best-sqlite3-frontend.js"></script>
+
+  <script src="/backend/tables.js"></script>
   <script src="/js/main.js"></script>
   <script src="/js/filmer.js"></script>
   <script src="/js/salong.js"></script>
   <script src="/js/footer.js"></script>
-
+  <script src="/js/biljetter.js"></script>
   <script src="/json/filmer.json"></script>
   <script src="/json/visningar.json"></script>
   <script src="/json/salonger.json"></script>
