@@ -1,4 +1,6 @@
-
+.site{
+    min-width: 470px;
+}
 .salong {
     background-color: rgb(255,255,255);
     background-color: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(205,205,205,1) 100%);
@@ -51,12 +53,11 @@ h3 {
 
 .row > div {
     display: grid;
-    
     justify-content: center;
     align-items: center;
-    min-width: 11%;
-    max-width: 20%;
-
+    /* min-width: 11%;
+    max-width: 20%; */
+    flex: 1 1 30px; /*sets flex grow = 0, flex shrink= 1 and flex basis= 30px*/
 }
 
 label{
@@ -67,11 +68,11 @@ label{
     border-bottom-right-radius: 25%;
     border-top: none;
     z-index: 1;
-    width: 30px;
+    width: 30px; 
     height: 30px;
     grid-column: 1;
     grid-row: 1;
-    flex-shrink: 2;
+ 
 }
 
 input{
@@ -81,7 +82,7 @@ input{
     height: 35px;
     grid-column: 1;
     grid-row: 1;
-    flex-shrink: 2;
+    
 }
 
 input:hover + label {
@@ -112,14 +113,13 @@ input:disabled + label {
 
 .row {
     justify-content: space-evenly;
-    flex-shrink: 1;
+   
 }
 
 .row > div{
     min-width: 8%;
     max-width: 10%;
-
+   
 }
-
 
 }
