@@ -1,4 +1,4 @@
-let choosenScreening = {};
+let choosenScreening = {}; /* Global variable med values från vald film och visning */
 
 
 pickMovie();
@@ -99,13 +99,13 @@ async function appendAvailableSeats(sal) {
         }
         html = html + `</div></br>`
     })
-    html = html + `<button id="seatBtn">Get Selected Seat</button></div>` /*skapar en button */ 
+    html = html + `<button id="seatBtn">Boka platser!</button></div>` /*skapar en button */ 
   $(".pickScreening").html(html);
 
   const seatBtn = document.querySelector('#seatBtn'); /* tar tag i seatBtn*/
 
 seatBtn.addEventListener('click', (event) => {  /*lyssnar när vi klickar på seatBtn och kallar på metod som kollar vilka säten som är iklickade och skriver ut värdena i en alert. */
-  alert("Du har bokat säten " + getSelectedSeatValue("seat") +`${choosenScreening.titel} ${choosenScreening.datum} ${choosenScreening.tid} ${choosenScreening.salong}` );
+  alert("Du har bokat platser Nr: " + getSelectedSeatValue("seat") + " till filmen" +` ${choosenScreening.titel} ${choosenScreening.datum} ${choosenScreening.tid} salong ${choosenScreening.salong}` );
 
 });
   
