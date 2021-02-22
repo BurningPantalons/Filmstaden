@@ -1,0 +1,169 @@
+@import url(detaljsida.css); 
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Poiret+One&family=Mulish&family=Red+Hat+Display&display=swap');
+@import url(footer.css);
+
+body {
+  background-color: rgb(44, 44, 44);
+  font-family: Verdana, sans-serif;
+}
+.site {
+  margin-left: 20vh;
+  margin-right: 20vh;
+}
+#active {
+  font-weight: bold;
+  text-decoration: underline;
+  color: white;
+}
+
+.Title {
+  font-family: 'Mulish', sans-serif;
+  color: black;
+}
+
+@media only screen and (min-width: 1000px) {
+  body {
+    margin-left: 8vh;
+    margin-right: 8vh;
+    padding: 0vh;
+  }
+.site {
+    margin: 0vh;
+    padding: 0vh;
+  }
+}
+  .menyrad span {
+    padding-top:3%;
+  }
+  .menubutton a{
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    text-decoration: none;
+  }
+  .menubutton a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+  .menubutton a .active {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .homebutton a:visited {
+    color: white;
+    text-decoration: none;
+  }
+  span{
+    display: inline-block;
+    margin-top: 1px;
+    margin-left: 20px;
+    font-size: 26px;
+  }
+  .user_login {
+    color: white;
+    text-decoration: none;
+    margin-top: 25px;
+    float: right;
+    padding-right: 5%;
+  }
+  .user_login a{
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    text-decoration: none;
+  }
+  .user_login a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+  .user_login a:visited {
+    color: white;
+    text-decoration: none;
+  }
+  .user_login a .active {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+/*pode ser retirado*/
+  .field{
+    --uiFieldBorderWidth: var(--fieldBorderWidth, 2px);
+    --uiFieldPaddingLeft: var(--fieldPaddingLeft, 1rem);   
+    position: relative;
+  }
+
+  
+  .field__input{
+    width: var(--fieldWidth, 100%);
+    height: var(--fieldHeight, 4rem);
+    
+    padding: var(--fieldPaddingTop, 1.25rem) var(--uiFieldPaddingRight) var(--fieldPaddingBottom, .5rem) var(--uiFieldPaddingLeft);  /*pode retirar*/
+
+    font-size: 20px;
+    padding:0.5%
+}
+  .field__input::-webkit-input-placeholder{
+    opacity: 0;
+    transition: opacity .2s ease-out;     /* pode retirar*/
+  }
+  .menyrad{
+    background: rgb(148,27,27);
+    background: linear-gradient(0deg, rgba(148,27,27,1) 0%, rgba(253,45,45,1) 100%); 
+    padding-bottom: 20px;
+    margin-top: -22px;
+  }
+  .field__label{
+    position: absolute;
+    left: var(--uiFieldPaddingLeft);
+    top: calc(9% - .10em);
+    font-size: var(--fieldHintFontSize, inherit);
+    transition: top .2s cubic-bezier(0.1, -0.15, 0.5, 3.15), opacity .2s ease-out, font-size .2s ease-out;
+    will-change: bottom, opacity, font-size;
+    font-family: 'Poiret One', cursive;
+  }
+  .field__input:focus ~ .field__label-wrap .field__label,
+  .field__input:not(:placeholder-shown) ~ .field__label-wrap .field__label{
+    --fieldHintFontSize: var(--fieldHintFontSizeFocused, .95rem);
+    top: var(--fieldHintTopHover, .35rem);
+  }
+  .labelImp{
+    box-sizing: border-box;
+    max-width: 600px;
+    margin: auto;
+    padding: 5rem;
+    display: grid;
+    grid-gap: 30px;
+  }
+  .submit{
+     font-style: italic; 
+     max-width: 250px;
+     margin: auto;
+     padding: 0.3rem;
+     display: grid;
+     color:white;
+     font-size: 20px;
+  }
+  .bt {
+    border:1px solid #25692A;
+    border-radius:4px;
+    display:inline-block;
+    cursor:pointer;
+    font-family:Verdana;
+    font-weight:bold;
+    font-size:13px;
+    padding:6px 10px;
+    text-decoration:none;
+    }
+
+    .newUser{
+      width: 500px;
+      font-style: bold; 
+      background:white; 
+      border-radius: 6px; 
+      padding: 10px; 
+      cursor: pointer; 
+      color: black; 
+      border: none; 
+      font-size: 19px;
+      text-decoration: none;
+    }
