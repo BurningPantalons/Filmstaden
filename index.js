@@ -40,9 +40,9 @@ require('best-sqlite3-frontend')({
       After successful run, open database2 file in sqlite3Studio
       Be sure to check All files (*) if you can not find "database2" in /db.
 
-*/
+
   //* UNCOMMENT BELOW TO CREATE DATABASE & TABLES */
-  //initDb(db);
+ // initDb(db);
 
 });
 

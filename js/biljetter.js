@@ -88,18 +88,20 @@ async function appendAvailableSeats(sal) {
     let saloon = await $.getJSON("/json/salonger.json"); /*Läser in json.salonger */
     selectedRoom = saloon.filter(r => r.name === sal)[0] /* matchar salong namnen från salonger.json med parametern sal som får värdet efter vald visning, Hämtar första objektet från arrayen som skapas*/
     
-  let html = "";
+  let html = '<div class="salong"> <h3> FILMDUK </h3> <div class="filmduk">' + '</div>';
 
-    let seatNr = 1;
+  let seatNr = 1;
+  let salongRad = 1;
     selectedRoom.seatsPerRow.forEach(rowSize => { /* för varje rad skapar vi en div */
-        html = html + `<div class="seatRow">` 
+      html = html + `<div class="rowhead"> RAD ${salongRad} </div> <div class="row">` 
+      salongRad++;
         for(let i = 0; i < rowSize; i++) { /* för varje iteration i raden/rowSize skapar vi en checkbox med ett värde*/
-            html = html + (/*html*/`<input class="checkbox" type="checkbox" name="seat" value="${seatNr}">` +`<label>${seatNr}</label>`);
+            html = html + (/*html*/`<div><input class="checkbox" type="checkbox" name="seat" value="${seatNr}">` +`<label></label></div>`);
             seatNr++;
         }
         html = html + `</div></br>`
     })
-    html = html + `<button id="seatBtn">Boka platser!</button></div>` /*skapar en button */ 
+    html = html + `<button id="seatBtn">Boka platser!</button></div></div>` /*skapar en button */ 
   $(".pickScreening").html(html);
 
   const seatBtn = document.querySelector('#seatBtn'); /* tar tag i seatBtn*/

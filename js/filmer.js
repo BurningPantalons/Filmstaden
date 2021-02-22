@@ -59,9 +59,9 @@ function showMovieAsHtml(collection, className) {
 
 async function testPreparedHere(fornamn) {
   let stmt = await db.run(`
-  SELECT * FROM users WHERE fornamn = $fornamn`, {
+insert into users(fornamn, efternamn, email, password) VALUES ('Fisken', 'Termosson', 'fangamig@test.com', 'fiskesposuger21');`); 
     $fornamn: fornamn 
-  });
+ 
   console.log(stmt);
   console.table(stmt);
   }
