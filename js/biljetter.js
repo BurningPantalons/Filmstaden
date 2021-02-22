@@ -88,7 +88,7 @@ async function appendAvailableSeats(sal) {
     let saloon = await $.getJSON("/json/salonger.json"); /*Läser in json.salonger */
     selectedRoom = saloon.filter(r => r.name === sal)[0] /* matchar salong namnen från salonger.json med parametern sal som får värdet efter vald visning, Hämtar första objektet från arrayen som skapas*/
     
-  let html = '<div class="salong"> <h3> FILMDUK </h3> <div class="filmduk">' + '</div>';
+  let html =   `<div class="salong"> <div class="salongName"> <span> ${choosenScreening.salong} </div> <h3> FILMDUK </h3> <div class="filmduk"> </div>`;
 
   let seatNr = 1;
   let salongRad = 1;
