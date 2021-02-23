@@ -57,9 +57,6 @@ function showMovieAsHtml(collection, className) {
   }
 }
 
-  console.log(stmt);
-  console.table(stmt);
-  }
 
 /*
 "movie" is a key
