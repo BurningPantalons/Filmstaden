@@ -108,13 +108,24 @@ async function appendAvailableSeats(sal) {
 
 seatBtn.addEventListener('click', (event) => {  /*lyssnar när vi klickar på seatBtn och kallar på metod som kollar vilka säten som är iklickade och skriver ut värdena i en alert. */
   alert("Du har bokat platser Nr: " + getSelectedSeatValue("seat") + " till filmen" +` ${choosenScreening.titel} ${choosenScreening.datum} ${choosenScreening.tid} salong ${choosenScreening.salong}` );
-
+  testPreparedHere2('Gunnar');
 });
   
 
 }
 
+async function testPreparedHere2(fornamnet) {
+  let stmt = await db.run(`
+  insert into users(fornamn, efternamn, email, password) VALUES ($fornamnet, $efternamn, $mail, $password);`, {
+    fornamnet,
+    $efternamn: 'testing100020',
+    $mail: 'mailtest10002@testnu.se',
+    $password: 'hellohello1232'
+ });
 
+  console.log(stmt);
+  console.table(stmt);
+  }
 
 function getSelectedSeatValue(seat) { 
   const checkBoxes = document.querySelectorAll(`input[name="${seat}"]:checked`); /*tar tag i de säten som i iklickade */

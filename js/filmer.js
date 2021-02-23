@@ -44,7 +44,7 @@ function showMovieAsHtml(collection, className) {
 
         <!-- todo> #4 # ! NEED TO CHANGE href TO BILJETTER ! --> 
         <button 
-          onclick="location.href='', testPreparedHere('Tisdag0950')"
+          onclick="location.href='/html/platsbokning.html?${document.MovieId}'"
           class="movieButton"
           type="button">Boka Biljett
         </button>
@@ -56,15 +56,6 @@ function showMovieAsHtml(collection, className) {
 
   }
 }
-
-async function testPreparedHere(fornamnet) {
-  let stmt = await db.run(`
-  insert into users(fornamn, efternamn, email, password) VALUES ($fornamnet, $efternamn, $mail, $password);`, {
-    fornamnet,
-    $efternamn: 'testing0955',
-    $mail: 'mailtest0955@testnu.se',
-    $password: 'hellohello123'
- });
 
   console.log(stmt);
   console.table(stmt);
