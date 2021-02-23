@@ -42,7 +42,7 @@ require('best-sqlite3-frontend')({
 
 
   //* UNCOMMENT BELOW TO CREATE DATABASE & TABLES */
- // initDb(db);
+ initDb(db);
 
 });
 
@@ -72,11 +72,11 @@ function initDb(db) {
    try {
      await db.run(/*sql*/`create table IF NOT EXISTS users(
      id int auto_increment,
-     fornamn varchar(100) not null,
-     efternamn varchar(100) not null,
-     password varchar(100) null,
-     email varchar(100) unique null,
-     primary key(id)
+     fornamn varchar(100),
+     efternamn varchar(100),
+     password varchar(100),
+     email varchar(100),
+     primary key(email)
   );`);
     console.log('Table users ready.');
    }
@@ -111,8 +111,8 @@ function initDb(db) {
       status boolean,
       visning_id int,
       salong_id int,
-      foreign key (salong_id) references salonger(id),
-      foreign key (visning_id) references visningar(id),
+      /*foreign key (salong_id) references salonger(id),
+      foreign key (visning_id) references visningar(id),*/
       primary key (id)
   );`);
     console.log('Table stolar ready.');
@@ -133,8 +133,8 @@ function initDb(db) {
     tid time,
     film_id int,
     salong_id int,
-    foreign key (film_id) references filmer(id),
-    foreign key (salong_id) references salonger(id),
+    /*foreign key (film_id) references filmer(id),
+    foreign key (salong_id) references salonger(id),*/
     primary key (id)
   );`);
     console.log('Table visningar ready.');
@@ -162,13 +162,13 @@ catch(error) {
   async function createBokningar(db) {
     try {
     await db.run(/*sql*/`create table IF NOT EXISTS bokningar(
-      id int auto_increment,
-      user_id int,
-      stol_id int,
       mail varchar(100),
-      foreign key (user_id) references users(id),
-      foreign key (stol_id) references stolar(id),
-      primary key (id)
+      datum varchar(100),
+      tid varchar(100),
+      titel varchar(100),
+      /*foreign key (mail) references users(mail),
+      foreign key (stol_id) references stolar(id),*/
+      primary key (mail, datum, tid, titel)
   );`);
     console.log('Table bokningar ready.');
   }
@@ -187,9 +187,9 @@ catch(error) {
       pris int,
       stolnr int,
       user_id int,
-      foreign key(user_id) references users(id),
+      /*foreign key(user_id) references users(id),
       foreign key(bokning_id) references bokningar(id),
-      foreign key(stolnr) references stolar(id),
+      foreign key(stolnr) references stolar(id),*/
       primary key (id)
     );`);
     console.log('Table biljetter ready.');

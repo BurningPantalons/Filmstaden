@@ -121,21 +121,20 @@ seatBtn.addEventListener('click', (event) => {  /*lyssnar när vi klickar på se
 
   alert("Du har bokat platserna " + getSelectedSeatValue("seat") + '\n' + "till filmen" +` ${choosenScreening.titel} \n ${choosenScreening.datum} ${choosenScreening.tid} salong ${choosenScreening.salong}.
   \n Bokningsbekräftelse är skickad till ${mail}. \n Vänligen hämta ut biljetterna senast 10 minuter för visning.` );
-  createBooking();
+  
+  createBooking(mail, choosenScreening.datum, choosenScreening.tid, choosenScreening.titel);
 }
 });
 }
   
 
-
-
-async function createBooking(fornamnet) {
+async function createBooking(email, datumet, tiden, movie_title) {
   let stmt = await db.run(`
-    insert into bokning(mail, datum, tid, film_id, titel, salong_id) VALUES ($fornamnet, $efternamn, $mail, $password);`, {
-    fornamnet,
-    $efternamn: 'testing100020',
-    $mail: 'mailtest10002@testnu.se',
-    $password: 'hellohello1232'
+    insert into bokningar(mail, datum, tid, titel) VALUES ($email, $datumet, $tiden, $movie_title);`, {
+    email,
+    datumet,
+    tiden,
+    movie_title
  });
 
   console.log(stmt);
