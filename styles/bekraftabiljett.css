@@ -1,0 +1,14 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Poiret+One&family=Mulish&family=Red+Hat+Display&display=swap');
+@import url(salong.css);
+@import url(detaljsida.css); 
+@import url(footer.css);
+@import url(biljetter.css);
+
+
+.CompletedTicket{
+    font-size:15px;
+    padding:10px 10px;
+    font-family: 'Oswald', sans-serif;
+}
+

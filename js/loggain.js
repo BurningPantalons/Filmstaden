@@ -10,6 +10,7 @@ let name = $("#username").focusout(function () {
 
 let password = $("#pass").focusout(function () {
   let pass = $("#pass").val();
+  emptyPass(pass);
 });
 v
 /* Changes the label to empty*/
@@ -35,5 +36,14 @@ function emailValidation(username) {
   }
   else {
     alert('email is to short');
+  }
+}
+
+function emptyPass(password){
+  if (password.length<4){
+      alert('password is to short');
+  }
+  else{
+      return password;
   }
 }

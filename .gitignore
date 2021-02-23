@@ -1859,3 +1859,4 @@ node_modules/sqlite3/lib/binding/napi-v3-win32-ia32/node_sqlite3.node
 node_modules/to-regex-range/index.js
 node_modules/to-regex-range/LICENSE
 node_modules/to-regex-range/README.md
+.vscode/settings.json
