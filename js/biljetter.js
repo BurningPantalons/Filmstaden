@@ -1,4 +1,5 @@
 let choosenScreening = {}; /* Global variable med values från vald film och visning */
+let valdaPlatser = [];
 
 
 pickMovie();
@@ -82,7 +83,6 @@ function selectedScreening() {
   appendAvailableSeats(screening.salong)
 }
 
-
 async function appendAvailableSeats(sal) { 
    
     let saloon = await $.getJSON("/json/salonger.json"); /*Läser in json.salonger */
@@ -107,16 +107,31 @@ async function appendAvailableSeats(sal) {
   const seatBtn = document.querySelector('#seatBtn'); /* tar tag i seatBtn*/
 
 seatBtn.addEventListener('click', (event) => {  /*lyssnar när vi klickar på seatBtn och kallar på metod som kollar vilka säten som är iklickade och skriver ut värdena i en alert. */
-  alert("Du har bokat platser Nr: " + getSelectedSeatValue("seat") + " till filmen" +` ${choosenScreening.titel} ${choosenScreening.datum} ${choosenScreening.tid} salong ${choosenScreening.salong}` );
-  testPreparedHere2('Gunnar');
+  getSelectedSeatValue("seat");
+
+  if (valdaPlatser.length == 0 ) {
+    alert('Inga säten valda');
+    return;
+  }
+
+
+  else {
+
+  let mail = prompt('Ange din mail för bokningsbekräftelse.');
+
+  alert("Du har bokat platserna " + getSelectedSeatValue("seat") + '\n' + "till filmen" +` ${choosenScreening.titel} \n ${choosenScreening.datum} ${choosenScreening.tid} salong ${choosenScreening.salong}.
+  \n Bokningsbekräftelse är skickad till ${mail}. \n Vänligen hämta ut biljetterna senast 10 minuter för visning.` );
+  createBooking();
+}
 });
+}
   
 
-}
 
-async function testPreparedHere2(fornamnet) {
+
+async function createBooking(fornamnet) {
   let stmt = await db.run(`
-  insert into users(fornamn, efternamn, email, password) VALUES ($fornamnet, $efternamn, $mail, $password);`, {
+    insert into bokning(mail, datum, tid, film_id, titel, salong_id) VALUES ($fornamnet, $efternamn, $mail, $password);`, {
     fornamnet,
     $efternamn: 'testing100020',
     $mail: 'mailtest10002@testnu.se',
@@ -129,15 +144,23 @@ async function testPreparedHere2(fornamnet) {
 
 function getSelectedSeatValue(seat) { 
   const checkBoxes = document.querySelectorAll(`input[name="${seat}"]:checked`); /*tar tag i de säten som i iklickade */
+
   let values = [];
+
   console.log(choosenScreening)
+
   checkBoxes.forEach((checkbox) => { /*varje varje iklickat säte sätter vi in dess värde i values[] */
     values.push(checkbox.value);
-
   });
+
+  valdaPlatser = values;
+
+
   return values;
   
 }
+
+
 
 
 
