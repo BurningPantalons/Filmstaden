@@ -1,52 +1,65 @@
-let newName = $("#username").focusout(function () {
-    let username = $("#username").val();
-    console.log(username);
-});
 
-$newEmail = $("#email").focusout(function () {
+
+/*listening to the label email*/
+
+let email = $("#email").focusout(function () {
     let email = $("#email").val();
-    console.log(email);
+    emailValidation(email);
 });
 
-let newPassword = $("#pass").focusout(function () {
-    let pass = $("#pass").val();
-    console.log(pass);
+
+/*listening to the label password*/
+
+let newPassword = $("#pass1").focusout(function () {
+    let pass = $("#pass1").val();
+    emptyPass(pass);
+    return pass;
 });
+
+
+/*listening to the label password confirm*/
 
 let passConfirm = $("#pass2").focusout(function () {
     let pass2 = $("#pass2").val();
-    console.log(pass2);
+    emptyPass(pass2);
+    validatepass();
+    return pass2;
 });
 
 
+/*Confirm if passwords matche*/
 
-/*Functions to validate fields*/
-
-
-
-$($newEmail).ready(function () {
-    $('#email').click(function () {
-        if ($("#email").val().indexOf('@', 0) == -1 || $("#email").val().indexOf('.', 0) == -1) {
-            alert('Invalid email');
-            console.log('invalid email');
-            return false;
-        }
-        return true;
-    });
-});
-
-let emailteste = "joao.com";
-
-function $emailValidade(email) {
-    for (let i = 0; i < email.size; i++) {
-        if (email.charAt(i) === '@') {
-            console.log(email.charAt(i));
-            break;
-        }
-        else {
-            console.log("email invalido");
-        }
-        return email;
+function validatepass(){9
+    if ( ($("#pass2").val()) !== ($("#pass1").val())){
+        alert('Passwords do not matche');
+        $('input[name=password').val('');
     }
-
 }
+
+/*Validate email  by '@' and length > 3*/
+
+function emailValidation(username) {
+    let result = username.indexOf("@");
+    if (username.length > 3) {
+      if (result < 0) {
+        alert('Email is not valid');
+      }
+      else {
+        return username;
+      }
+  
+    }
+    else {
+      alert('email is to short');
+    }
+  }
+
+  function emptyPass(password){
+      if (password.length<4){
+          alert('password is to short');
+      }
+      else{
+          return password;
+      }
+  }
+

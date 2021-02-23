@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loggain</title>
     <link rel="stylesheet" href="/styles/loggain.css">
+
 </head>
 
 
@@ -18,10 +19,10 @@
                 <span class="menubutton"><a href="/html/filmer.html">FILMER</a></span>
                 <span class="user_login" id="active"><a href="/html/loggain.html">LOGGA IN</a></span>
             </div>
-            <div class="labelImp">
+            <div class="labelImp" id="fields_user_pass">
                 <form id="userAndPass"></form>
                 <label class="field field_v1">
-                    <input class="field__input" type="text" id="username" placeholder="username">
+                    <input class="field__input" type="text" name="email" id="username" placeholder="username">
                     <span class="field__label-wrap">
                         <span class="field__label">email</span>
                     </span>
@@ -32,12 +33,19 @@
 
                         <span class="field__label-wrap">
                             <span class="field__label">lösenord</span>
-                            <p class="submit">Press ENTER to submit.</p>
-                            <a href="/html/newuser.html"><button class="newUser">Ny på Filmstaden? BLI
-                                    MEDLEM</button></a>
                         </span>
                 </label>
                 </form>
+                <span>
+
+
+
+                    <label class="submitbutton">
+                        <button id="onclick" class="newUser" type="submit" name="submit_button" value="foo">Click to
+                            submit</button>
+                        <a href="/html/newuser.html"><button class="newUser">Ny på Filmstaden? BLI MEDLEM</button></a>
+                    </label>
+                </span>
             </div>
         </div>
     </main>
@@ -50,7 +58,6 @@
     </script>
 <script src="/js/main.js"></script>
 <script src="/js/footer.js"></script>
-<script src="/js/detaljinfo.js"></script>
 <script src="/js/loggain.js"></script>
 
 </html>
