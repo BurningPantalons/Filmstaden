@@ -1,5 +1,5 @@
 let choosenScreening = {}; /* Global variable med values från vald film och visning */
-let valdaPlatser = [];
+let valdaPlatser = {};
 
 
 pickMovie();
@@ -77,6 +77,7 @@ async function showAvailableTimes(title) {
 function selectedScreening() {
   
   let data = $("#visning").val().split("_") /*Data hämtar värden från vald visning i vår select"visning" och lägger i en array */
+  console.log(data)
   let screening = { datum: data[0], tid: data[1], salong: data[2], titel: data[3] }  /*screening pekar på objektet så vi kan plocka ut de värden vi vill */
   choosenScreening = {...screening}
   console.log(screening)
@@ -122,7 +123,7 @@ seatBtn.addEventListener('click', (event) => {  /*lyssnar när vi klickar på se
   alert("Du har bokat platserna " + getSelectedSeatValue("seat") + '\n' + "till filmen" +` ${choosenScreening.titel} \n ${choosenScreening.datum} ${choosenScreening.tid} salong ${choosenScreening.salong}.
   \n Bokningsbekräftelse är skickad till ${mail}. \n Vänligen hämta ut biljetterna senast 10 minuter för visning.` );
   
-  createBooking(mail, choosenScreening.datum, choosenScreening.tid, choosenScreening.titel);
+  createBooking(valdaPlatser, mail, choosenScreening.datum, choosenScreening.tid, choosenScreening.titel);
 }
 });
 }
@@ -145,15 +146,17 @@ function getSelectedSeatValue(seat) {
   const checkBoxes = document.querySelectorAll(`input[name="${seat}"]:checked`); /*tar tag i de säten som i iklickade */
 
   let values = [];
-
-  console.log(choosenScreening)
-
+ 
   checkBoxes.forEach((checkbox) => { /*varje varje iklickat säte sätter vi in dess värde i values[] */
     values.push(checkbox.value);
   });
 
-  valdaPlatser = values;
+  let platser = { seatnr1: values[0], seatnr2: values[1], seatnr3: values[2], seatnr4: values[3]}
 
+  valdaPlatser = { ...platser }
+  
+  console.log(platser)
+  console.log(valdaPlatser)
 
   return values;
   
