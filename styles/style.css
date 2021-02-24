@@ -262,22 +262,21 @@ iframe {
   margin-top: 5vh;
  }
 
+
 .moviePoster{
   display: flex;
   justify-content: center;
   gap: 25px;
   margin: 5px
 }
-
-
  
-.colposter{
+/*.colPoster{
  flex: 20%;
   padding: 5px;
-}
+} */
 
 .biljettPoster{
- border: 1px solid #ddd;
+ 
   border-radius: 4px;
   padding: 5px;
   width: 200px;
@@ -285,11 +284,43 @@ iframe {
   cursor:pointer;
 }
 
-.biljettPoster:hover{
+.colPoster:hover > .biljettPoster{ 
+  transform: scale(1.2); 
+  opacity: 0.3;
+  
+}
+
+.colPoster:hover > .middle{
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/*.biljettPoster:hover{
 
   transform: scale(1.2); 
   opacity: 0.3;
 
+
+}*/
+
+
+
+.middle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 29%;
+  padding-left: 15px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  background-color: rgb(148,27,27);
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px 16px 32px;
+  margin-left: 35px;
+  
 }
 
 
