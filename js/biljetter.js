@@ -40,6 +40,9 @@ async function showMoviePoster() {
 
     let $document = $(/*html*/`<div class="colPoster">
   <img class="biljettPoster" src=${document.Poster} onclick="showAvailableTimes('${document.Title}')" />
+    <div class="middle">
+      <div class="pText">Välj Film!</div>
+      </div>
   </div>
   `);
     

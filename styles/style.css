@@ -264,7 +264,12 @@ iframe {
 
 .moviePoster{
   display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin: 5px
 }
+
+
  
 .colposter{
  flex: 20%;
@@ -276,7 +281,15 @@ iframe {
   border-radius: 4px;
   padding: 5px;
   width: 200px;
+  transition: transform .1s;
   cursor:pointer;
+}
+
+.biljettPoster:hover{
+
+  transform: scale(1.2); 
+  opacity: 0.3;
+
 }
 
 
