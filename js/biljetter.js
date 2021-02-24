@@ -113,7 +113,7 @@ async function appendAvailableSeats(sal) {
 seatBtn.addEventListener('click', (event) => {  /*lyssnar när vi klickar på seatBtn och kallar på metod som kollar vilka säten som är iklickade och skriver ut värdena i en alert. */
   getSelectedSeatValue("seat");
 
-  if (valdaPlatser.length == 0 ) {
+  if (choosenScreening.seats.length == 0 ) {
     alert('Inga säten valda');
     return;
   }
