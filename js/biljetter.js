@@ -123,7 +123,7 @@ seatBtn.addEventListener('click', (event) => {  /*lyssnar när vi klickar på se
   alert("Du har bokat platserna " + getSelectedSeatValue("seat") + '\n' + "till filmen" +` ${choosenScreening.titel} \n ${choosenScreening.datum} ${choosenScreening.tid} salong ${choosenScreening.salong}.
   \n Bokningsbekräftelse är skickad till ${mail}. \n Vänligen hämta ut biljetterna senast 10 minuter för visning.` );
   
-  createBooking(valdaPlatser, mail, choosenScreening.datum, choosenScreening.tid, choosenScreening.titel);
+  createBooking(choosenScreening.seats , mail, choosenScreening.datum, choosenScreening.tid, choosenScreening.titel);
 }
 });
 }
@@ -151,12 +151,10 @@ function getSelectedSeatValue(seat) {
     values.push(checkbox.value);
   });
 
-  let platser = { seatnr1: values[0], seatnr2: values[1], seatnr3: values[2], seatnr4: values[3]}
-
-  valdaPlatser = { ...platser }
+  choosenScreening.seats =  [...values]
   
-  console.log(platser)
-  console.log(valdaPlatser)
+  console.log(choosenScreening)
+  
 
   return values;
   
