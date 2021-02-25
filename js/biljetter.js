@@ -100,7 +100,7 @@ async function appendAvailableSeats(sal) {
   let seatNr = 1;
   let salongRad = 1;
     selectedRoom.seatsPerRow.forEach(rowSize => { /* för varje rad skapar vi en div */
-      html = html + `<div class="rowhead"> RAD ${salongRad} </div> <div class="row">` 
+      html = html + `<div class="rowhead"> RAD ${salongRad} </div> <div class="row" id=rad${salongRad}>` 
       salongRad++;
         for(let i = 0; i < rowSize; i++) { /* för varje iteration i raden/rowSize skapar vi en checkbox med ett värde*/
             html = html + (/*html*/`<div><input class="checkbox" type="checkbox" name="seat" value="${seatNr}">` +`<label></label></div>`);
@@ -108,7 +108,7 @@ async function appendAvailableSeats(sal) {
         }
         html = html + `</div></br>`
     })
-    html = html + `<button id="seatBtn">Boka platser!</button></div></div>` /*skapar en button */ 
+    // html = html + `<button id="seatBtn">Boka platser!</button></div></div>` /*skapar en button */ 
   $(".pickScreening").html(html);
 
   const seatBtn = document.querySelector('#seatBtn'); /* tar tag i seatBtn*/
@@ -128,8 +128,6 @@ seatBtn.addEventListener('click', (event) => {  /*lyssnar när vi klickar på se
 
   alert("Du har bokat platserna " + getSelectedSeatValue("seat") + '\n' + "till filmen" +` ${choosenScreening.titel} \n ${choosenScreening.datum} ${choosenScreening.tid} salong ${choosenScreening.salong}.
   \n Bokningsbekräftelse är skickad till ${mail}. \n Vänligen hämta ut biljetterna senast 10 minuter för visning.` );
-  
-
 
   for (i=0; i < choosenScreening.seats.length; i++) { 
   biljett = [mail, choosenScreening.titel, choosenScreening.seats[i], choosenScreening.datum, choosenScreening.tid];
