@@ -163,12 +163,13 @@ catch(error) {
     try {
     await db.run(/*sql*/`create table IF NOT EXISTS bokningar(
       mail varchar(100),
-      datum varchar(100),
-      tid varchar(100),
       titel varchar(100),
+      stolnr int,
+      datum varchar(100),
+      tid varchar(100)
       /*foreign key (mail) references users(mail),
       foreign key (stol_id) references stolar(id),*/
-      primary key (mail, datum, tid, titel)
+      /*primary key (mail, datum, tid, titel)*/
   );`);
     console.log('Table bokningar ready.');
   }

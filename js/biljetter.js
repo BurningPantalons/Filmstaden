@@ -1,6 +1,9 @@
 let choosenScreening = {}; /* Global variable med values från vald film och visning */
 let valdaPlatser = {};
 
+let bokning = [];
+let biljett = new Array(10);
+
 
 pickMovie();
 
@@ -126,20 +129,40 @@ seatBtn.addEventListener('click', (event) => {  /*lyssnar när vi klickar på se
   alert("Du har bokat platserna " + getSelectedSeatValue("seat") + '\n' + "till filmen" +` ${choosenScreening.titel} \n ${choosenScreening.datum} ${choosenScreening.tid} salong ${choosenScreening.salong}.
   \n Bokningsbekräftelse är skickad till ${mail}. \n Vänligen hämta ut biljetterna senast 10 minuter för visning.` );
   
-  createBooking(choosenScreening.seats , mail, choosenScreening.datum, choosenScreening.tid, choosenScreening.titel);
+
+
+  for (i=0; i < choosenScreening.seats.length; i++) { 
+  biljett = [mail, choosenScreening.titel, choosenScreening.seats[i], choosenScreening.datum, choosenScreening.tid];
+  console.log("BILJETT");
+  console.log(biljett);
+
+  bokning.push(biljett); 
+
+  createBooking(biljett);
+}
+
 }
 });
 }
   
 /**testkommentar git */
-async function createBooking(email, datumet, tiden, movie_title) {
+async function createBooking(biljett) {
+  db.run("BEGIN TRANSACTION");
+
+let [mailen, titeln, stolnret, datumet, tiden] = biljett;
+
   let stmt = await db.run(`
-    insert into bokningar(mail, datum, tid, titel) VALUES ($email, $datumet, $tiden, $movie_title);`, {
-    email,
+    insert into bokningar(mail, titel, stolnr, datum, tid) VALUES ($mailen, $titeln, $stolnret, $datumet, $tiden);`, {
+    mailen,
+    titeln,
+    stolnret,
     datumet,
-    tiden,
-    movie_title
- });
+    tiden
+ }
+ 
+ )
+ db.run("COMMIT");
+ ;
 
   console.log(stmt);
   console.table(stmt);
