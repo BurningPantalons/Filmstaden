@@ -131,7 +131,7 @@ seatBtn.addEventListener('click', (event) => {  /*lyssnar när vi klickar på se
 });
 }
   
-
+/**testkommentar git */
 async function createBooking(email, datumet, tiden, movie_title) {
   let stmt = await db.run(`
     insert into bokningar(mail, datum, tid, titel) VALUES ($email, $datumet, $tiden, $movie_title);`, {
