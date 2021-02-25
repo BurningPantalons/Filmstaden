@@ -281,7 +281,7 @@ iframe {
   padding: 5px;
   width: 200px;
   transition: transform .1s;
-  cursor:pointer;
+  
 }
 
 .colPoster:hover > .biljettPoster{ 
@@ -293,6 +293,7 @@ iframe {
 .colPoster:hover > .middle{
   opacity: 1;
   visibility: visible;
+  cursor:pointer;
 }
 
 

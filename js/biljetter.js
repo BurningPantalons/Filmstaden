@@ -42,9 +42,9 @@ async function showMoviePoster() {
   for (let document of movies) {  /*loopar igenom filmer och tar ut varje poster värde som är en bild och lägger den i en img tag */
 
     let $document = $(/*html*/`<div class="colPoster">
-  <img class="biljettPoster" src=${document.Poster} onclick="showAvailableTimes('${document.Title}')" />
-    <div class="middle">
-      <div class="pText">Välj Film!</div>
+  <img class="biljettPoster" src=${document.Poster}  />
+    <div class="middle" onclick="showAvailableTimes('${document.Title}')">
+      <div class="pText" >Välj Film!</div>
       </div>
   </div>
   `);
