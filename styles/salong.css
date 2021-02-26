@@ -122,3 +122,17 @@ input:disabled + label {
 }
 
 }
+
+.seatBtn{
+  font-family: 'Red Hat Display', sans-serif;
+  background: rgba(253,45,45,1);
+  background: linear-gradient(0deg, rgb(200, 36, 36) 1%, rgb(223, 40, 40) 70%); 
+  color: white;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 8px;
+  cursor: pointer;
+  border-style: none;
+}

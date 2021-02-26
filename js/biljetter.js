@@ -97,7 +97,7 @@ async function appendAvailableSeats(sal) {
         }
         html = html + `</div></br>`
     })
-    html = html + `<button id="seatBtn">Boka platser!</button></div></div>` /*skapar en button */ 
+    html = html + `<button id="seatBtn" class="seatBtn">Boka platser!</button></div></div>` /*skapar en button */ 
   $(".pickScreening").html(html);
 
   const seatBtn = document.querySelector('#seatBtn'); /* tar tag i seatBtn*/
