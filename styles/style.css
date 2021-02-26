@@ -352,27 +352,26 @@ iframe {
 
 @media only screen and (min-width: 1000px) {
   body {
-    margin-left: 8vh;
-    margin-right: 8vh;
-    padding: 0vh;
-}
-.site {
-    margin: 0vh;
-    padding: 0vh;
+      margin-left: 8vh;
+      margin-right: 8vh;
+      padding: 0vh;
+  }
+  .site {
+      margin: 0vh;
+      padding: 0vh;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
-  body {
-    margin-left: 14vh;
-    margin-right: 14vh;
-    padding: 0vh;
+    body {
+      margin-left: 14vh;
+      margin-right: 14vh;
+      padding: 0vh;
+  }
+  .site {
+      margin: 0vh;
+      padding: 0vh;
+  }
 }
-.site {
-    margin: 0vh;
-    padding: 0vh;
-}
-
-
-
 
 }
