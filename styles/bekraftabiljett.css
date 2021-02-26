@@ -5,10 +5,26 @@
 @import url(footer.css);
 @import url(biljetter.css);
 
-
 .CompletedTicket{
-    font-size:15px;
+    font-size:18px;
     padding:10px 10px;
     font-family: 'Oswald', sans-serif;
+    text-align: center;
+    color: black;
+    background-color: white;
 }
 
+#email{
+    color:black;
+}
+
+#title{
+    color: white;
+}
+
+#bookning{
+    color: white;
+    font-family:'Oswald', sans-serif; 
+    font-size:30px;
+    text-align:center;
+}
