@@ -139,6 +139,17 @@ seatBtn.addEventListener('click', (event) => {  /*lyssnar när vi klickar på se
   createBooking(biljett);
 }
 
+ /* Values of booking in LocalStorage*/
+ 
+localStorage.setItem(`email`,`${mail}`);
+localStorage.setItem(`title`,`${choosenScreening.titel}`);
+localStorage.setItem(`date`,`${choosenScreening.datum}`);
+localStorage.setItem(`time`,`${choosenScreening.tid}`);
+localStorage.setItem(`salong`,`${choosenScreening.salong}`);
+localStorage.setItem(`seat`,getSelectedSeatValue("seat"));
+localStorage.setItem(`row`,`${salongRad}`);
+
+
 }
 });
 }
