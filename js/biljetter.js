@@ -29,10 +29,14 @@ async function pickMovie(){
 
   let filmval = $(/*html*/`  
     <div class="sammanfattning">
+
     <div class="filmval">
     <p for="dropdownmovie">Välj film:</p>  
     <select class="dropdownmenu" id="dropdownmovie" name="dropdownmovie" onchange="pickTime(value); showAvailableTimes(value)"></select>
-  </div>`);  
+  </div>
+  <div class="sammanfattning2"> `
+  );  
+
 
   /* Rad 10-14 filmval skapar html struktur med en selectlista av filmer */
   
@@ -42,12 +46,14 @@ async function pickMovie(){
     let $option = $(`<option value="${movies.Title}">${movies.Title}</option>`); /* loopar igenom filmerna vi läst in från jsonMovies, Tar title värdet och appendar det på vår select med namn "movies" */
     $('#dropdownmovie').append($option); 
   }  
+
 };  
 
 async function showAvailableTimes(title) { 
   let screenings = await $.getJSON("/json/visningar.json"); /* läser in json.visningar */
   screenings = screenings.filter(scr => scr.titel === title); /*Matchar den titeln vi får som parameter i funktionsanropet med alla titlar i visningar som vi läser in skapar en ny array med alla matchningar. */
-  
+
+
  let $document = $(/*html*/`<div class="scrSelect">
     <p for="visningmenu">Välj visning:</p>
     <select class="dropdownmenu" id="dropdownvisning" name="visningmenu" onchange="selectedScreening()">     
@@ -73,7 +79,7 @@ function selectedScreening() {
   console.log(screening)
 
   //Sammanfattar ens valda tid och film ovan salong
-  $('.sammanfattning').append(`<div class="valdtid"> Datum: ${screening.datum} &nbsp;&nbsp; Tid: ${screening.tid}</div>`);
+  $('.sammanfattning2').html(`<div class="valdtid"> Datum: ${screening.datum} &nbsp;&nbsp; Tid: ${screening.tid}</div>`);
 
   appendAvailableSeats(screening.salong)
 }
@@ -167,6 +173,9 @@ function getSelectedSeatValue(seat) {
 
 function pickTime(value) {
   console.log(value); 
+  //clears the times in html to enable a new movie choice
+  $('.valdtid').html(`</div>`);
+  $('.sammanfattning2').html(`</div>`);
 }
 
 

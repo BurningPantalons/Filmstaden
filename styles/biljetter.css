@@ -51,7 +51,11 @@ p {
 }
 
 .sammanfattning {
-  display:flex;
+  display: block;
+}
+
+.sammanfattning2 {
+
 }
 
 .filmval {
@@ -61,12 +65,12 @@ p {
 }
 
 .valdtid {
-  display: block;
+  display: blocK;
   padding: 8px 14px 8px 14px;
-  background-color: tomato;
+  background: linear-gradient(0deg, rgb(192, 35, 35) 0%, rgba(253,45,45,1) 100%);
   border-color: rgb(255, 63, 63) ;
-  margin-top: 13vh;
-  margin-left:2vw;
+  margin-top: 4vh;
+  max-width: 63vh;
   font-family: 'Oswald', sans-serif;
   color:white;
   font-size: 32px;
