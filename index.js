@@ -14,6 +14,19 @@ npm install best-sqlite3-frontend
 
 */
 
+/*    -- CREATE DATABASE & TABLES --
+      Function "initDb" creates non-existing tables
+      Uncomment below and run if tables do not yet exist.
+
+      After successful run, open database2 file in sqlite3Studio
+      Be sure to check All files (*) if you can not find "database2" in /db.
+
+
+  //* UNCOMMENT BELOW TO CREATE DATABASE & TABLES */
+  initDb();
+
+
+
 
 require('best-sqlite3-frontend')({
   
@@ -33,21 +46,9 @@ require('best-sqlite3-frontend')({
 
   console.log(`Connected to database via best-sqlite3-frontend`);
 
-/*    -- CREATE DATABASE & TABLES --
-      Function "initDb" creates non-existing tables
-      Uncomment below and run if tables do not yet exist.
-
-      After successful run, open database2 file in sqlite3Studio
-      Be sure to check All files (*) if you can not find "database2" in /db.
-
-
-  //* UNCOMMENT BELOW TO CREATE DATABASE & TABLES */
- initDb(db);
-
 });
 
-
-function initDb(db) {
+function initDb() {
 
     let dataConnect;
 
