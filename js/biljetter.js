@@ -38,7 +38,7 @@ async function pickMovie(){
   );  
 
 
-  /* Rad 10-14 filmval skapar html struktur med en selectlista av filmer */
+  
   
   $('.pickMovie').append(filmval); 
   
@@ -62,7 +62,8 @@ async function showAvailableTimes(title) {
     `);
   $('.pickScreening').html($document);
   
-  /*html struktur rad 59-64 där vi skapar en select lista med visningar */
+/*html struktur rad 59-64 där vi skapar en select lista med visningar */
+  
   for (const [key, value] of Object.entries(screenings)) { 
     let $option = $(`<option value="${value.datum}_${value.tid}_${value.salong}_${value.titel}">${value.datum} ${value.tid} Salong ${value.salong}</option>`);
     
@@ -181,7 +182,51 @@ function pickTime(value) {
 
 
 
+appendSelect(); /*diskussion hur och när vi vill appenda denna*/
 
+function appendSelect() {
+  
+  let $html = $(/*html*/`
+  <div class="container">
+  <p >Välj typ av biljett!</p>
+    <div class="selectOne">
+    <p for="barnS">Barn</p>
+      <select class ="barnSelect" name="barnS">
+      </select>
+     </div> 
+      <div class="selectTwo">
+      <p for="vuxenS">Vuxen</p>
+      <select class ="vuxenSelect" name="vuxenS">
+      </select>
+     </div>   
+     <div class="selectThree">
+       <p for="pensS">Pensionär</p>
+      <select class ="pensSelect" name="pensS">
+      </select>
+     </div> 
+     </div>
+     `)
+  
+  $('.testOne').append($html);
+  
+
+ let $barnS = $(".barnSelect");
+  for (i = 1; i <= 10; i++) {
+    $barnS.append($('<option></option>').val(i).html(i))
+  }
+      let $vuxenS = $(".vuxenSelect");
+    for (i=1;i<=10;i++){
+        $vuxenS.append($('<option></option>').val(i).html(i))
+  }
+
+  let $penS = $(".pensSelect");
+  for (i = 1; i <= 10; i++) {
+    $penS.append($('<option></option>').val(i).html(i))
+
+  }
+        
+}
+  
 
 
 
