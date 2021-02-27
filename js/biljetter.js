@@ -4,6 +4,8 @@ let valdaPlatser = {};
 let bokning = [];
 let biljett = new Array(10);
 
+let allTickets = [];
+
 
 pickMovie();
 showMoviePoster();
@@ -204,6 +206,10 @@ function appendSelect() {
       <select class ="pensSelect" name="pensS">
       </select>
      </div> 
+        <div class="btnContainer">
+        <button id="ticketBtn" class="ticketBtn" onclick="getTicketValue()">Boka platser!</button>
+        
+        </div>
      </div>
      `)
   
@@ -226,6 +232,40 @@ function appendSelect() {
   }
         
 }
+
+function getTicketValue() {
+  let barnTickets = parseInt($(".barnSelect").val());
+  console.log(barnTickets);
+
+  let vuxenTickets = parseInt($(".vuxenSelect").val());
+  console.log(vuxenTickets);
+
+  let pensTickets = parseInt($(".pensSelect").val());
+  console.log(pensTickets);
+
+  ticketSum = barnTickets + vuxenTickets + pensTickets;
+  
+  allTickets.splice(0,1,ticketSum)
+
+  barnTicketPris = barnTickets * 65;
+
+  vuxenTicketsPris = vuxenTickets * 85;
+
+  pensTicketsPris = pensTickets * 75;
+
+  prisSumma = barnTicketPris + vuxenTicketsPris + pensTicketsPris;
+
+
+
+  console.log(barnTicketPris + "kr")
+  console.log(vuxenTicketsPris + "kr")
+  console.log(pensTicketsPris + "kr")
+  console.log("sum " + ticketSum)
+  console.log("allTick " + allTickets)
+
+  alert("Pris: Barnbiljetter: " + barnTicketPris + "kr. Vuxenbiljetter" + vuxenTicketsPris + "kr. Pensionärbiljetter" + pensTicketsPris + "kr. Summa att betala:" + prisSumma + "kr");
+
+  }
   
 
 
