@@ -28,6 +28,7 @@ npm install best-sqlite3-frontend
 
 
 
+
 require('best-sqlite3-frontend')({
   
   importTables: require('./backend/tables.js'),
@@ -47,6 +48,7 @@ require('best-sqlite3-frontend')({
   console.log(`Connected to database via best-sqlite3-frontend`);
 
 });
+
 
 function initDb() {
 
@@ -166,9 +168,10 @@ catch(error) {
       bokning_id varchar (10),
       mail varchar(100),
       titel varchar(100),
-      stolnr int,
+      salong int,
       datum varchar(100),
       tid varchar(100),
+      antal int,
       /*foreign key (mail) references users(mail),
       foreign key (stol_id) references stolar(id),*/
       primary key (bokning_id)
@@ -184,16 +187,18 @@ catch(error) {
   async function createBiljetter(db) {
     try {
     await db.run(/*sql*/`create table IF NOT EXISTS biljetter(
-      id int auto_increment,
+      id INTEGER PRIMARY KEY,
       bokning_id int,
-      typ varchar(50),
-      pris int,
+      titel varchar(100),
       stolnr int,
-      user_id int,
-      /*foreign key(user_id) references users(id),
-      foreign key(bokning_id) references bokningar(id),
-      foreign key(stolnr) references stolar(id),*/
-      primary key (id)
+      salong int,
+      datum varchar(100),
+      tid varchar(100),
+      foreign key (titel) references bokningar(titel),
+      foreign key (datum) references bokningar(datum),
+      foreign key (tid) references bokningar(tid),
+      foreign key(bokning_id) references bokningar(bokning_id)
+    /*foreign key(stolnr) references stolar(id)*/
     );`);
     console.log('Table biljetter ready.');
   }

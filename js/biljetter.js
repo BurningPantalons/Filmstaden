@@ -6,9 +6,11 @@ let biljett = new Array(10);
 
 let allTickets = [];
 
+let bokning_id;
 
 pickMovie();
 showMoviePoster();
+
 
 async function showMoviePoster() {
   let movies = await $.getJSON("/json/filmer.json"); /* läser in json.filmer */
@@ -133,12 +135,17 @@ async function appendAvailableSeats(sal) {
         alert("Du har bokat platserna " + getSelectedSeatValue("seat") + '\n' + "till filmen" + ` ${choosenScreening.titel} \n ${choosenScreening.datum} ${choosenScreening.tid} salong ${choosenScreening.salong}.
       \n Bokningsbekräftelse är skickad till ${mail}. \n Vänligen hämta ut biljetterna senast 10 minuter för visning.`);
 
+      //Creates ticketnumber
+      bokning_id = ticketNumber();
+      
+
         //Creates a booking to sqlite3 for each seat booked.
         for (i = 0; i < choosenScreening.seats.length; i++) {
-          biljett = [mail, choosenScreening.titel, choosenScreening.seats[i], choosenScreening.datum, choosenScreening.tid];
+          biljett = [mail, choosenScreening.titel, choosenScreening.seats[i], choosenScreening.salong, choosenScreening.datum, choosenScreening.tid, choosenScreening.seats.length];
 
           bokning.push(biljett);
-          createBooking(biljett);
+          createBiljetter(biljett);
+         
 
           /*Save the values of film choose*/
 
@@ -150,6 +157,7 @@ async function appendAvailableSeats(sal) {
           localStorage.setItem(`seat`, getSelectedSeatValue("seat"));
           localStorage.setItem(`row`, `${salongRad}`);
         }
+        createBooking(biljett);
       }
 
     }
@@ -167,18 +175,53 @@ function ValidateEmail(mail) {
   return (false)
 }
 
+/* Create the ticket number*/
 
-async function createBooking(biljett) {
+function ticketNumber() {
+  let result = '';
+  let characters = 'ABCDEF6789';
+  let charactersLength = characters.length;
+  for (let i = 0; i < characters.length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+}
+
+async function createBiljetter(biljett) {
+  db.run("BEGIN TRANSACTION");
+
+    //Deconstructing the biljett
+    let [mailen, titeln, stolnr, salongen, datumet, tiden, antal] = biljett;
+
+    let stmt = await db.run(`
+      insert into biljetter(bokning_id, titel, stolnr, salong, datum, tid) VALUES ($bokning_id, $titeln, $stolnr, $salongen, $datumet, $tiden);`, {
+      bokning_id,
+      titeln,
+      stolnr,
+      salongen,
+      datumet,
+      tiden
+    })
+    db.run("COMMIT");;
+
+}
+
+
+async function createBooking(bokning) {
+
   db.run("BEGIN TRANSACTION");
   //Deconstructing the biljett
-  let [mailen, titeln, stolnret, datumet, tiden] = biljett;
+  let [mailen, titeln, stolnr, salongen, datumet, tiden, antalet] = bokning;
+
   let stmt = await db.run(`
-      insert into bokningar(mail, titel, stolnr, datum, tid) VALUES ($mailen, $titeln, $stolnret, $datumet, $tiden);`, {
+      insert into bokningar(bokning_id, mail, titel, salong, datum, tid, antal) VALUES ($bokning_id, $mailen, $titeln, $salongen, $datumet, $tiden, $antalet);`, {
+    bokning_id,
     mailen,
     titeln,
-    stolnret,
+    salongen,
     datumet,
-    tiden
+    tiden,
+    antalet
   }
   )
   db.run("COMMIT");
