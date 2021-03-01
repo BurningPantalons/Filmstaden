@@ -1,15 +1,14 @@
 @import url(detaljsida.css); 
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Poiret+One&family=Mulish&family=Red+Hat+Display&display=swap');
 @import url(footer.css);
+@import url(menu.css);
 
 body {
   background-color: rgb(44, 44, 44);
   font-family: Verdana, sans-serif;
 }
-.site {
-  margin-left: 20vh;
-  margin-right: 20vh;
-}
+
+
 #active {
   font-weight: bold;
   text-decoration: underline;
@@ -21,51 +20,15 @@ body {
   color: black;
 }
 
-@media only screen and (min-width: 1000px) {
-  body {
-    margin-left: 8vh;
-    margin-right: 8vh;
-    padding: 0vh;
-  }
-.site {
-    margin: 0vh;
-    padding: 0vh;
-  }
+.user_login {
+  color: white;
+  text-decoration: none;
+  margin-top: 45px;
+  float: right;
+  padding-right: 5%;
 }
-  .menyrad span {
-    padding-top:3%;
-  }
-  .menubutton a{
-    font-family: 'Oswald', sans-serif;
-    color: white;
-    text-decoration: none;
-  }
-  .menubutton a:hover {
-    color: white;
-    text-decoration: underline;
-  }
-  .menubutton a .active {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  .homebutton a:visited {
-    color: white;
-    text-decoration: none;
-  }
-  span{
-    display: inline-block;
-    margin-top: 1px;
-    margin-left: 20px;
-    font-size: 26px;
-  }
-  .user_login {
-    color: white;
-    text-decoration: none;
-    margin-top: 25px;
-    float: right;
-    padding-right: 5%;
-  }
+
+
   .user_login a{
     font-family: 'Oswald', sans-serif;
     color: white;
