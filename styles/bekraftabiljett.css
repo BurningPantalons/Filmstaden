@@ -5,7 +5,7 @@
 @import url(footer.css);
 @import url(biljetter.css);
 
-.CompletedTicket{
+.headTicket{
     font-size:18px;
     padding:10px 10px;
     font-family: 'Oswald', sans-serif;
@@ -22,9 +22,39 @@
     color: white;
 }
 
-#bookning{
+.bookning{
     color: white;
     font-family:'Oswald', sans-serif; 
     font-size:30px;
     text-align:center;
+    display: flex;
+    padding:10px 10px;
+    width: 100%;
+   
+
 }
+.ticketInformation{
+    display:flexbox;
+    width: 100%;
+   
+ 
+}
+
+.rowAndSeat{
+font-size: 20px;
+text-align:center;
+width: 500px;
+margin: auto;
+text-size-adjust:inherit;
+}
+
+
+
+.bodyOfTicket{
+    display: flex;
+    text-align: justify;
+}
+    #seat{
+        color:  rgb(44, 44, 44);
+    }
+
