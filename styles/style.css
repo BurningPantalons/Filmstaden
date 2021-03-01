@@ -4,6 +4,7 @@
 @import url(detaljsida.css); 
 @import url(footer.css);
 @import url(biljetter.css);
+@import url(menu.css);
 
 body {
   background-color: rgb(44, 44, 44);
@@ -18,104 +19,6 @@ h1{
 
 }
 
-.menyrad{
-  background: rgb(148,27,27);
-  background: linear-gradient(0deg, rgba(148,27,27,1) 0%, rgba(253,45,45,1) 100%); 
-  padding-bottom: 20px;
-  margin-top: -22px;
-  
-}
-
-.menyrad span {
-  padding-top:3%;
-  
-}
-
-
-
-.menubutton a{
-  font-family: 'Oswald', sans-serif;
-  color: white;
-  text-decoration: none;
-}
-
-.menubutton a:hover {
-  color: white;
-  text-decoration: underline;
-}
-
-.menubutton a:visited {
-  color: white;
-  text-decoration: none;
-}
-.menubutton a .active {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.homebutton {
-  margin-left: 3%;
-  margin-right: 3%;
-  font-family: 'Poiret One', cursive;
-  font-size: 58px;
-
-}
-
-.homebutton a{
-  color: white;
-  font-size: 58px;
-  text-decoration: none;
-}
-
-.homebutton a:visited {
-  color: white;
-  text-decoration: none;
-}
-
-.homebutton a:hover {
-  color: white;
-  text-decoration: underline;
-
-}
-
-span{
-  display: inline-block;
-  margin-top: 15px;
-  margin-left: 20px;
-  font-size: 26px;
-}
-
-.user_login {
-  color: white;
-  text-decoration: none;
-  margin-top: 45px;
-  float: right;
-  padding-right: 5%;
-}
-
-.user_login a{
-  font-family: 'Oswald', sans-serif;
-  color: white;
-  text-decoration: none;
-}
-
-.user_login a:hover {
-  color: white;
-  text-decoration: underline;
-}
-
-.user_login a:visited {
-  color: white;
-  text-decoration: none;
-
-}
-
-#active {
-  font-weight: bold;
-  text-decoration: underline;
-  color: white;
-}
 
 .movie_trailer_window{
  box-sizing:border-box;

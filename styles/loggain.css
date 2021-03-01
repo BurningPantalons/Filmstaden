@@ -1,15 +1,14 @@
 @import url(detaljsida.css); 
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Poiret+One&family=Mulish&family=Red+Hat+Display&display=swap');
 @import url(footer.css);
+@import url(menu.css);
 
 body {
   background-color: rgb(44, 44, 44);
   font-family: Verdana, sans-serif;
 }
-.site {
-  margin-left: 20vh;
-  margin-right: 20vh;
-}
+
+
 #active {
   font-weight: bold;
   text-decoration: underline;
@@ -21,19 +20,8 @@ body {
   color: black;
 }
 
-@media only screen and (min-width: 1000px) {
-  body {
-    margin-left: 8vh;
-    margin-right: 8vh;
-    padding: 0vh;
-  }
-.site {
-    margin: 0vh;
-    padding: 0vh;
-  }
-}
   .menyrad span {
-    padding-top:3%;
+    padding-top:8vh;
   }
   .menubutton a{
     font-family: 'Oswald', sans-serif;
@@ -53,19 +41,16 @@ body {
     color: white;
     text-decoration: none;
   }
-  span{
-    display: inline-block;
-    margin-top: 1px;
-    margin-left: 20px;
-    font-size: 26px;
-  }
+
+
   .user_login {
     color: white;
     text-decoration: none;
-    margin-top: 25px;
+    margin-top: 45px;
     float: right;
     padding-right: 5%;
   }
+  
   .user_login a{
     font-family: 'Oswald', sans-serif;
     color: white;
@@ -106,13 +91,8 @@ body {
     opacity: 0;
     transition: opacity .2s ease-out;     /* pode retirar*/
   }
-  .menyrad{
-    background: rgb(148,27,27);
-    background: linear-gradient(0deg, rgba(148,27,27,1) 0%, rgba(253,45,45,1) 100%); 
-    padding-bottom: 20px;
-    margin-top: -22px;
-    
-  }
+
+  
   .field__label{
     position: absolute;
     left: var(--uiFieldPaddingLeft);
@@ -169,3 +149,4 @@ body {
       text-decoration: none;
       margin-bottom:10%;
     }
+

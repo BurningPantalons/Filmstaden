@@ -1,0 +1,147 @@
+.menyrad{
+    background: rgb(148,27,27);
+    background: linear-gradient(0deg, rgba(148,27,27,1) 0%, rgba(253,45,45,1) 100%); 
+    padding-bottom: 20px;
+    margin-top: -2vh;
+    
+  }
+  
+  .menyrad span {
+    padding-top:8vh;
+    
+  }
+  
+  
+  .menubutton a{
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .menubutton a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+  
+  .menubutton a:visited {
+    color: white;
+    text-decoration: none;
+  }
+  .menubutton a .active {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .homebutton {
+    margin-left: 3%;
+    margin-right: 3%;
+    font-family: 'Poiret One', cursive;
+    font-size: 58px;
+  
+  }
+  
+  .homebutton a{
+    color: white;
+    font-size: 58px;
+    text-decoration: none;
+  }
+  
+  .homebutton a:visited {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .homebutton a:hover {
+    color: white;
+    text-decoration: underline;
+  
+  }
+  
+  span{
+    display: inline-block;
+    margin-top: 15px;
+    margin-left: 20px;
+    font-size: 26px;
+  }
+  
+  .user_login {
+    color: white;
+    text-decoration: none;
+    margin-top: 45px;
+    float: right;
+    padding-right: 5%;
+  }
+  
+  .user_login a{
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .user_login a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+  
+  .user_login a:visited {
+    color: white;
+    text-decoration: none;
+  
+  }
+  
+  #active {
+    font-weight: bold;
+    text-decoration: underline;
+    color: white;
+  }
+  
+
+  @media only screen and (max-width: 600px) {
+    body {
+      margin-left: 0vh;
+      margin-right: 0vh;
+      padding: 0vh;
+  }
+  .site {
+      margin: 0vh;
+      padding: 0vh;
+  }
+  
+  }
+  
+  @media only screen and (min-width: 601px) {
+    body {
+      margin-left: 0vh;
+      margin-right: 0vh;
+      padding: 0vh;
+  }
+  .site {
+      margin: 0vh;
+      padding: 0vh;
+  }
+  
+  
+  @media only screen and (min-width: 1000px) {
+    body {
+        margin-left: 8vh;
+        margin-right: 8vh;
+        padding: 0vh;
+    }
+    .site {
+        margin: 0vh;
+        padding: 0vh;
+    }
+  }
+  
+  @media only screen and (min-width: 1200px) {
+      body {
+        margin-left: 14vh;
+        margin-right: 14vh;
+        padding: 0vh;
+    }
+    .site {
+        margin: 0vh;
+        padding: 0vh;
+    }
+  }
