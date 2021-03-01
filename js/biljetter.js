@@ -149,8 +149,6 @@ async function appendAvailableSeats(sal) {
           localStorage.setItem(`salong`, `${choosenScreening.salong}`);
           localStorage.setItem(`seat`, getSelectedSeatValue("seat"));
           localStorage.setItem(`row`, `${salongRad}`);
-          localStorage.setItem(`poster`, `${Poster}`);
-
         }
       }
 
