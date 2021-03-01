@@ -20,7 +20,7 @@ function StringToArray(string) {
 
 /*put the value of ticket number in html and create the number of tycket*/
 
-let tycketNummer = document.getElementById("ticketsNumber").innerHTML = 'Ditt bokningsnummer är ' + bokning_id;
+let tycketNummer = document.getElementById("ticketsNumber").innerHTML = 'Ditt bokningsnummer är  ' + localStorage.getItem(`bokning_id`, `${bokning_id}`);
 let title = document.getElementById("title").innerHTML = localStorage.getItem(`title`, `${choosenScreening.titel}`);
 let date = document.getElementById("date").innerHTML = localStorage.getItem(`date`, `${choosenScreening.datum}`);
 let salong = document.getElementById("salong").innerHTML = 'SALONG:  ' + localStorage.getItem(`salong`, `${choosenScreening.salong}`);
@@ -150,4 +150,3 @@ async function readJsonToMoviePoster() {
     }
   }
 }
-

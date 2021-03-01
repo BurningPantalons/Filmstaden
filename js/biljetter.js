@@ -135,8 +135,9 @@ async function appendAvailableSeats(sal) {
         alert("Du har bokat platserna " + getSelectedSeatValue("seat") + '\n' + "till filmen" + ` ${choosenScreening.titel} \n ${choosenScreening.datum} ${choosenScreening.tid} salong ${choosenScreening.salong}.
       \n Bokningsbekräftelse är skickad till ${mail}. \n Vänligen hämta ut biljetterna senast 10 minuter för visning.`);
 
-      //Creates ticketnumber
+      /*Creates ticketnumber and save the value in localStorage*/
       bokning_id = ticketNumber();
+      localStorage.setItem(`bokning_id`,`${bokning_id}`);
       
 
         //Creates a booking to sqlite3 for each seat booked.
