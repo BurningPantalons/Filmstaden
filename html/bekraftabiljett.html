@@ -21,27 +21,36 @@
 
     <main>
       <div class="CompletedTicket">
-        <h1>Bokningsbekräftelse</h1>
-        <h2>Tack för ditt köp!</h2>
-        <h2>Bokningsbekräftelse skickad till</h2>
-        <h2 id="email"></h2>
-        <h2 id="ticketsNumber"></h2>
-        <h2>Glöm inte hämta ut biljetterna 10 <br> minuter innan visning.</h2>
-      </div>
-      <div id="bookning">
-        <div>
-          <img >
+        <div class="headTicket">
+          <h1>Bokningsbekräftelse</h1>
+          <h2>Tack för ditt köp!</h2>
+          <h2>Bokningsbekräftelse skickad till</h2>
+          <h2 id="email"></h2>
+          <h2 id="ticketsNumber"></h2>
+          <h2>Glöm inte hämta ut biljetterna 10<br> minuter innan visning.</h2>
         </div>
-        <div>
-          <p id="title"></p>
-          <p id="date"></p>
-          <p id="time"></p>
-          <p id="email"></p>
-          <p id="salong"></p>
-          <p id="row"></p>
-          <p id="seat"></p>
-        </div>
-      </div>
+        <div class="bookning" id="bookning">
+            <div class="bodyOfTicket">
+              <div class="poster" src = ${document.Poster}>
+                <img class="poster"> 
+              </div>
+              <div class="ticketInformation">
+                <p id="title"></p>
+                <p id="time"></p>
+                <p id="date"></p>
+                <p id="email"></p>
+                <p id="salong"></p>
+                <p id="row"></p>
+                <p id="seat"></p>
+              </div>
+              <div class="rowAndSeat">
+                <div id="row"></div>
+                <div id="seat"></div>
+              </div>
+            </div>
+          </div>
+          
+
 
 
     </main>
