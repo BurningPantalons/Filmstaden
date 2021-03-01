@@ -263,7 +263,7 @@ function getTicketValue() {
   console.log("sum " + ticketSum)
   console.log("allTick " + allTickets)
 
-  alert("Pris: Barnbiljetter: " + barnTicketPris + "kr. Vuxenbiljetter" + vuxenTicketsPris + "kr. Pensionärbiljetter" + pensTicketsPris + "kr. Summa att betala:" + prisSumma + "kr");
+  alert( '\n' + " Pris \n Barnbiljetter: " + barnTicketPris + "kr. \n Vuxenbiljetter: " + vuxenTicketsPris + "kr. \n Pensionärbiljetter: " + pensTicketsPris + "kr. \n \n Summa att betala: " + prisSumma + "kr");
 
   }
   
