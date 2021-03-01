@@ -123,6 +123,10 @@ async function appendAvailableSeats(sal) {
     else {
       let mail = prompt('Ange din mail för bokningsbekräftelse.');
 
+      validemail = ValidateEmail(mail);
+
+      if (validemail) {
+
       alert("Du har bokat platserna " + getSelectedSeatValue("seat") + '\n' + "till filmen" +` ${choosenScreening.titel} \n ${choosenScreening.datum} ${choosenScreening.tid} salong ${choosenScreening.salong}.
       \n Bokningsbekräftelse är skickad till ${mail}. \n Vänligen hämta ut biljetterna senast 10 minuter för visning.` );
 
@@ -132,11 +136,25 @@ async function appendAvailableSeats(sal) {
 
         bokning.push(biljett); 
         createBooking(biljett);
-  }
+      } 
+    }
 
   }
+
 });
 }
+
+
+function ValidateEmail(mail) {
+
+  if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail))
+  {
+    return (true)
+  }
+    alert("You have entered an invalid email address!")
+    return (false)
+}
+
   
 async function createBooking(biljett) {
   db.run("BEGIN TRANSACTION");
