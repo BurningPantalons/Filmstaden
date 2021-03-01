@@ -82,9 +82,10 @@ function selectedScreening() {
   console.log(screening)
 
   //Sammanfattar ens valda tid och film ovan salong
-  $('.sammanfattning2').html(`<div class="valdtid"> Datum: ${screening.datum} &nbsp;&nbsp; Tid: ${screening.tid}</div>`);
-
-  appendAvailableSeats(screening.salong)
+  
+  
+  
+  appendSelect();
 }
 
 async function appendAvailableSeats(sal) {
@@ -109,13 +110,15 @@ async function appendAvailableSeats(sal) {
   html = html + `<button id="seatBtn" class="seatBtn">Boka platser!</button></div></div>` /*skapar en button */
   $(".pickScreening").html(html);
 
+  
+
   const seatBtn = document.querySelector('#seatBtn'); /* tar tag i seatBtn*/
 
   seatBtn.addEventListener('click', (event) => {  /*lyssnar när vi klickar på seatBtn och kallar på metod som kollar vilka säten som är iklickade och skriver ut värdena i en alert. */
     getSelectedSeatValue("seat");
 
-    if (choosenScreening.seats.length == 0) {
-      alert('Inga säten valda');
+    if (choosenScreening.seats.length != allTickets) {
+      alert("Du måste välja rätt antal säten" + "(" + allTickets + ")");
       return;
     }
 
@@ -213,7 +216,7 @@ function pickTime(value) {
 
 
 
-appendSelect(); /*diskussion hur och när vi vill appenda denna*/
+
 
 function appendSelect() {
 
@@ -242,20 +245,21 @@ function appendSelect() {
      </div>
      `)
 
-  $('.testOne').append($html);
+  $('.pickScreening').html($html);
 
+  
 
   let $barnS = $(".barnSelect");
-  for (i = 1; i <= 10; i++) {
+  for (i = 0; i <= 10; i++) {
     $barnS.append($('<option></option>').val(i).html(i))
   }
   let $vuxenS = $(".vuxenSelect");
-  for (i = 1; i <= 10; i++) {
+  for (i = 0; i <= 10; i++) {
     $vuxenS.append($('<option></option>').val(i).html(i))
   }
 
   let $penS = $(".pensSelect");
-  for (i = 1; i <= 10; i++) {
+  for (i = 0; i <= 10; i++) {
     $penS.append($('<option></option>').val(i).html(i))
 
   }
@@ -263,6 +267,9 @@ function appendSelect() {
 }
 
 function getTicketValue() {
+
+  appendAvailableSeats(choosenScreening.salong)
+
   let barnTickets = parseInt($(".barnSelect").val());
   console.log(barnTickets);
 
@@ -284,15 +291,10 @@ function getTicketValue() {
 
   prisSumma = barnTicketPris + vuxenTicketsPris + pensTicketsPris;
 
+$('.sammanfattning2').html(`<div class="valdtid"> Datum: ${choosenScreening.datum} &nbsp;&nbsp; Tid: ${choosenScreening.tid} Antal biljetter: ${allTickets}</div>`);
 
 
-  console.log(barnTicketPris + "kr")
-  console.log(vuxenTicketsPris + "kr")
-  console.log(pensTicketsPris + "kr")
-  console.log("sum " + ticketSum)
-  console.log("allTick " + allTickets)
-
-  alert('\n' + " Pris \n Barnbiljetter: " + barnTicketPris + "kr. \n Vuxenbiljetter: " + vuxenTicketsPris + "kr. \n Pensionärbiljetter: " + pensTicketsPris + "kr. \n \n Summa att betala: " + prisSumma + "kr");
+  
 
 }
 
