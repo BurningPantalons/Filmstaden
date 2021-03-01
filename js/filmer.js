@@ -44,7 +44,7 @@ function showMovieAsHtml(collection, className) {
 
         <!-- todo> #4 # ! NEED TO CHANGE href TO BILJETTER ! --> 
         <button 
-          onclick="location.href='/html/platsbokning.html?${document.MovieId}'"
+          onclick="location.href='/html/biljetter.html'"
           class="movieButton"
           type="button">Boka Biljett
         </button>
