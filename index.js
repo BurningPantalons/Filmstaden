@@ -163,14 +163,15 @@ catch(error) {
   async function createBokningar(db) {
     try {
     await db.run(/*sql*/`create table IF NOT EXISTS bokningar(
+      bokning_id varchar (10),
       mail varchar(100),
       titel varchar(100),
       stolnr int,
       datum varchar(100),
-      tid varchar(100)
+      tid varchar(100),
       /*foreign key (mail) references users(mail),
       foreign key (stol_id) references stolar(id),*/
-      /*primary key (mail, datum, tid, titel)*/
+      primary key (bokning_id)
   );`);
     console.log('Table bokningar ready.');
   }
