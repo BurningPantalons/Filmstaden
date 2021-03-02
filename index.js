@@ -183,8 +183,8 @@ catch(error) {
     }
   }
   
-  createBiljetter(dataConnect);
-  async function createBiljetter(db) {
+  createBiljettTable(dataConnect);
+  async function createBiljettTable(db) {
     try {
     await db.run(/*sql*/`create table IF NOT EXISTS biljetter(
       id INTEGER PRIMARY KEY,
