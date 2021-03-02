@@ -71,9 +71,9 @@ function initDb() {
   /* DE-COMMENT any method call to create tables */
 
  createUsers(dataConnect);
- async function createUsers(db) {
+ async function createUsers(sqlite3) {
    try {
-     await db.run(/*sql*/`create table IF NOT EXISTS users(
+     await sqlite3.run(/*sql*/`create table IF NOT EXISTS users(
      id int auto_increment,
      fornamn varchar(100),
      efternamn varchar(100),
@@ -91,9 +91,9 @@ function initDb() {
 
   
   createSalonger(dataConnect);
-  async function createSalonger(db) {
+  async function createSalonger(sqlite3) {
     try {
-      await db.run(/*sql*/`create table IF NOT EXISTS salonger(
+      await sqlite3.run(/*sql*/`create table IF NOT EXISTS salonger(
       id int auto_increment,
       name varchar(100),
       primary key (id)
@@ -107,9 +107,9 @@ function initDb() {
 
   
   createStolar(dataConnect);
-  async function createStolar(db) {
+  async function createStolar(sqlite3) {
   try{
-   await db.run(/*sql*/`create table IF NOT EXISTS stolar(
+   await sqlite3.run(/*sql*/`create table IF NOT EXISTS stolar(
       id int auto_increment,
       status boolean,
       visning_id int,
@@ -128,9 +128,9 @@ function initDb() {
 
   
   createVisningar(dataConnect);
-  async function createVisningar(db) {
+  async function createVisningar(sqlite3) {
     try {
-    await db.run(/*sql*/`create table IF NOT EXISTS visningar(
+    await sqlite3.run(/*sql*/`create table IF NOT EXISTS visningar(
     id int auto_increment, 
     datum datetime,
     tid time,
@@ -148,9 +148,9 @@ catch(error) {
 }
   
   createFilmer(dataConnect);  //tveksam om denna behövs?
-  async function createFilmer(db) {
+  async function createFilmer(sqlite3) {
     try {
-    await db.run(/*sql*/`create table IF NOT EXISTS filmer( 
+    await sqlite3.run(/*sql*/`create table IF NOT EXISTS filmer( 
     id int auto_increment,
     title varchar(100), primary key (id)
   );`);
@@ -162,9 +162,9 @@ catch(error) {
   }
     
   createBokningar(dataConnect);
-  async function createBokningar(db) {
+  async function createBokningar(sqlite3) {
     try {
-    await db.run(/*sql*/`create table IF NOT EXISTS bokningar(
+    await sqlite3.run(/*sql*/`create table IF NOT EXISTS bokningar(
       bokning_id varchar (10),
       mail varchar(100),
       titel varchar(100),
@@ -184,9 +184,9 @@ catch(error) {
   }
   
   createBiljettTable(dataConnect);
-  async function createBiljettTable(db) {
+  async function createBiljettTable(sqlite3) {
     try {
-    await db.run(/*sql*/`create table IF NOT EXISTS biljetter(
+    await sqlite3.run(/*sql*/`create table IF NOT EXISTS biljetter(
       id INTEGER PRIMARY KEY,
       bokning_id int,
       titel varchar(100),
@@ -212,31 +212,4 @@ catch(error) {
 
   
 
-  
-
-
-
-    
-   //testInsert(db)
-   async function testInsert(db) {
-    await db.run(/*sql*/ `insert into users(fornamn, efternamn, email, password) VALUES ('Fisken', 'Termosson', 'fangamig23@test.com', 'fiskesposuger21');`);
-    console.log('Sent data to users');
-  }
-
-
-
-
-//preparedStatement(db, "Olle");
-/* 
-FUNGERAR - prepared statement är ett kontrakt för att undvika SQL Injections. 
-Inte 100% att denna är HELT korrekt.
-*/
-  async function preparedStatement(db, fornamn, efternamn) {
-    let stmt = await db.run(/*sql*/`
-    SELECT * FROM users WHERE fornamn = $fornamn`, {
-      $fornamn: fornamn
-    });
-  
-    console.table(stmt);
-  }
   
