@@ -12,9 +12,8 @@ async function showMoviePoster() {
   let movies = await $.getJSON("/json/filmer.json"); /* läser in json.filmer */
 
   for (let document of movies) {  /*loopar igenom filmer och tar ut varje poster värde som är en bild och lägger den i en img tag */
-    let $document = $(/*html*/`<div class="colPoster">
+    let $document = $(/*html*/`
     <div class="biljettPoster" onclick="showAvailableTimes('${document.Title}')"> <img src=${document.Poster}/> <div class="pText"></div></div>
-    </div>
   `);
     $('.moviePoster').append($document);
   }
@@ -94,7 +93,7 @@ async function appendAvailableSeats(sal) {
     }
     html = html + `</div></br>`
   })
-  html = html + `<button id="seatBtn" class="seatBtn">Välj platser!</button></div></div>` /*skapar en button */
+  html = html + `<button id="seatBtn" class="seatBtn">Boka valda platser</button></div></div>` /*skapar en button */
   $(".pickScreening").html(html);
 
   
@@ -141,6 +140,9 @@ async function appendAvailableSeats(sal) {
           localStorage.setItem(`row`, `${salongRad}`);
         }
         createBooking(biljett);
+
+        $(".ticketContainer").append(`<button onclick="location.href='/html/bekraftabiljett.html?${document.MovieId}'" class="ticketButton"
+        type="button">Boka Biljett</button>`);
       }
     }
   });
@@ -256,7 +258,7 @@ function appendSelect() {
       </select>
      </div> 
         <div class="btnContainer">
-        <button id="ticketBtn" class="ticketBtn" onclick="getTicketValue()">Boka platser!</button>     
+        <button id="ticketBtn" class="ticketBtn" onclick="getTicketValue()">Välj platser</button>     
         </div>
      </div>
      `)

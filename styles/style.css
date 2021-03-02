@@ -168,9 +168,9 @@ iframe {
 
 .moviePoster{
   display:flex;
-  justify-content: space-between;
+  flex-direction: row;
   height: 30vw;
-  margin: 5px
+
 }
  
 /*.colPoster{
@@ -179,16 +179,17 @@ iframe {
 } */
 
 .biljettPoster{
+  flex-basis: 100%;
   border-radius: 4px;
-  height: 20vw;
-  width:100%;
+  min-height: 10vw;
+  max-height: 10vw;
   transition: transform .1s;
 
 }
 
 
 .biljettPoster > img{
-  align-content:center;
+  flex-basis: 100%;
   border-radius: 4px;
   width:100%;
   height: 30vw;
@@ -196,19 +197,17 @@ iframe {
   
 }
 
-
-.colPoster:hover > .biljettPoster{ 
-  transform: scale(1.2); 
+.biljettPoster:hover{ 
+  transform: scale(1.05); 
   opacity: 1;
   
 }
 
-.colPoster:hover > .middle{
+.biljettPoster:active{ 
+  transform: scale(1.1); 
   opacity: 1;
-  visibility: visible;
-  cursor:pointer;
+  
 }
-
 
 /*.biljettPoster:hover{
 

@@ -43,11 +43,8 @@ p {
 }
 
 .ticketContainer {
-  display:flex;
-  flex-direction: row;
-  align-items:flex-end;  
-  justify-content: flex-end;
-  width: 100%;
+  margin: 3vw 0vw 3vw 0vw;
+  width: 20vw;
 }
 
 .sammanfattning {
