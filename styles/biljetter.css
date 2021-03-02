@@ -190,12 +190,11 @@ font-size: 22px;
 
 }
 
-.container {
+.typeofticket {
   display: flex;
-  justify-content:right;
   gap: 25px;
-
 }
+
 
 .btnContainer {
   display:flex;
