@@ -1,16 +1,12 @@
 let choosenScreening = {}; /* Global variable med values från vald film och visning */
 let valdaPlatser = {};
-
 let bokning = [];
 let biljett = new Array(10);
-
 let allTickets = [];
-
 let bokning_id;
 
 pickMovie();
 showMoviePoster();
-
 
 async function showMoviePoster() {
   let movies = await $.getJSON("/json/filmer.json"); /* läser in json.filmer */
@@ -18,7 +14,6 @@ async function showMoviePoster() {
   for (let document of movies) {  /*loopar igenom filmer och tar ut varje poster värde som är en bild och lägger den i en img tag */
     let $document = $(/*html*/`<div class="colPoster">
     <div class="biljettPoster" onclick="showAvailableTimes('${document.Title}')"> <img src=${document.Poster}/> <div class="pText"></div></div>
-
     </div>
   `);
     $('.moviePoster').append($document);
@@ -38,18 +33,14 @@ async function pickMovie() {
   </div>
   <div class="sammanfattning2"> `
   );
-
-
-
-
   $('.pickMovie').append(filmval);
 
   for (let movies of jsonMovies) {
     let $option = $(`<option value="${movies.Title}">${movies.Title}</option>`); /* loopar igenom filmerna vi läst in från jsonMovies, Tar title värdet och appendar det på vår select med namn "movies" */
     $('#dropdownmovie').append($option);
   }
-
 };
+
 
 async function showAvailableTimes(title) {
   let screenings = await $.getJSON("/json/visningar.json"); /* läser in json.visningar */
@@ -82,9 +73,6 @@ function selectedScreening() {
   console.log(screening)
 
   //Sammanfattar ens valda tid och film ovan salong
-  
-  
-  
   appendSelect();
 }
 
@@ -94,7 +82,6 @@ async function appendAvailableSeats(sal) {
   selectedRoom = saloon.filter(r => r.name === sal)[0] /* matchar salong namnen från salonger.json med parametern sal som får värdet efter vald visning, Hämtar första objektet från arrayen som skapas*/
 
   let html = `<div class="salong"> <div class="salongName"> <span> ${choosenScreening.salong} </div> <h3> FILMDUK </h3> <div class="filmduk"> </div>`;
-
   let seatNr = 1;
   let salongRad = 1;
 
@@ -111,9 +98,7 @@ async function appendAvailableSeats(sal) {
   $(".pickScreening").html(html);
 
   
-
   const seatBtn = document.querySelector('#seatBtn'); /* tar tag i seatBtn*/
-
   seatBtn.addEventListener('click', (event) => {  /*lyssnar när vi klickar på seatBtn och kallar på metod som kollar vilka säten som är iklickade och skriver ut värdena i en alert. */
     getSelectedSeatValue("seat");
 
@@ -121,7 +106,6 @@ async function appendAvailableSeats(sal) {
       alert("Du måste välja rätt antal säten" + "(" + allTickets + ")");
       return;
     }
-
 
     else {
       let mail = prompt('Ange din mail för bokningsbekräftelse.');
@@ -158,9 +142,7 @@ async function appendAvailableSeats(sal) {
         }
         createBooking(biljett);
       }
-
     }
-
   });
 }
 
@@ -205,7 +187,6 @@ async function createBiljetter(biljett) {
 
 }
 
-
 async function createBooking(bokning) {
 
   db.run("BEGIN TRANSACTION");
@@ -226,8 +207,6 @@ async function createBooking(bokning) {
   db.run("COMMIT");
   ;
 
-  console.log(stmt);
-  console.table(stmt);
 }
 
 
@@ -240,13 +219,11 @@ function getSelectedSeatValue(seat) {
   });
   choosenScreening.seats = [...values]
 
-  console.log(choosenScreening)
-
   return values;
 }
 
 
-function pickTime(value) {
+ function pickTime(value) {
   console.log(value);
   //clears the times in html to enable a new movie choice
   $('.valdtid').html(`</div>`);
@@ -263,7 +240,6 @@ function appendSelect() {
   let $html = $(/*html*/`
   <p>Välj typ av biljett! </p>
   <div class="typeofticket">
-
     <div class="selectOne">
     <p for="barnS">Barn</p>
       <select class ="barnSelect" name="barnS">
@@ -280,16 +256,13 @@ function appendSelect() {
       </select>
      </div> 
         <div class="btnContainer">
-        <button id="ticketBtn" class="ticketBtn" onclick="getTicketValue()">Boka platser!</button>
-        
+        <button id="ticketBtn" class="ticketBtn" onclick="getTicketValue()">Boka platser!</button>     
         </div>
      </div>
      `)
-
   $('.pickScreening').html($html);
 
   
-
   let $barnS = $(".barnSelect");
   for (i = 0; i <= 10; i++) {
     $barnS.append($('<option></option>').val(i).html(i))
@@ -298,45 +271,30 @@ function appendSelect() {
   for (i = 0; i <= 10; i++) {
     $vuxenS.append($('<option></option>').val(i).html(i))
   }
-
   let $penS = $(".pensSelect");
   for (i = 0; i <= 10; i++) {
     $penS.append($('<option></option>').val(i).html(i))
-
   }
-
 }
 
-function getTicketValue() {
 
+function getTicketValue() {
   appendAvailableSeats(choosenScreening.salong)
 
   let barnTickets = parseInt($(".barnSelect").val());
-  console.log(barnTickets);
-
   let vuxenTickets = parseInt($(".vuxenSelect").val());
-  console.log(vuxenTickets);
-
   let pensTickets = parseInt($(".pensSelect").val());
-  console.log(pensTickets);
-
+  
   ticketSum = barnTickets + vuxenTickets + pensTickets;
 
   allTickets.splice(0, 1, ticketSum)
-
   barnTicketPris = barnTickets * 65;
-
   vuxenTicketsPris = vuxenTickets * 85;
-
   pensTicketsPris = pensTickets * 75;
 
   prisSumma = barnTicketPris + vuxenTicketsPris + pensTicketsPris;
 
 $('.sammanfattning2').html(`<div class="valdtid"> Datum: ${choosenScreening.datum} &nbsp;&nbsp; Tid: ${choosenScreening.tid} Antal biljetter: ${allTickets}</div>`);
-
-
-
-
 }
 
 
