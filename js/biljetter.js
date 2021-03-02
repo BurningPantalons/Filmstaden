@@ -109,7 +109,7 @@ async function appendAvailableSeats(sal) {
     }
     html = html + `</div></br>`
   })
-  html = html + `<button id="seatBtn" class="seatBtn">Boka platser!</button></div></div>` /*skapar en button */
+  html = html + `<button id="seatBtn" class="seatBtn">Välj platser!</button></div></div>` /*skapar en button */
   $(".pickScreening").html(html);
 
   
@@ -336,7 +336,7 @@ function getTicketValue() {
 $('.sammanfattning2').html(`<div class="valdtid"> Datum: ${choosenScreening.datum} &nbsp;&nbsp; Tid: ${choosenScreening.tid} Antal biljetter: ${allTickets}</div>`);
 
 
-  
+
 
 }
 
