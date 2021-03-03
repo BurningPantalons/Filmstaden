@@ -296,7 +296,7 @@ function getTicketValue() {
 
   prisSumma = barnTicketPris + vuxenTicketsPris + pensTicketsPris;
 
-$('.sammanfattning2').html(`<div class="valdtid"> Datum: ${choosenScreening.datum} &nbsp;&nbsp; Tid: ${choosenScreening.tid} Antal biljetter: ${allTickets}</div>`);
+$('.sammanfattning2').html(`<div class="valdtid"> Datum: ${choosenScreening.datum} &nbsp; Tid: ${choosenScreening.tid} Antal biljetter: ${allTickets} Pris: ${prisSumma}Kr</div>`);
 }
 
 
