@@ -47,7 +47,7 @@ async function showAvailableTimes(title) {
 
 
   let $document = $(/*html*/`<div class="scrSelect">
-    <p for="visningmenu">Välj visning:</p>
+    <p class="textforvisning"for="visningmenu">Välj visning:</p>
     <select class="dropdownmenu" id="dropdownvisning" name="visningmenu" onchange="selectedScreening()">     
     </select>
     </div>
