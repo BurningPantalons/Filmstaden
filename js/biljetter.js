@@ -243,17 +243,17 @@ function appendSelect() {
   <p>Välj typ av biljett! </p>
   <div class="typeofticket">
     <div class="selectOne">
-    <p for="barnS">Barn</p>
+    <p for="barnS">Barn: 65kr</p>
       <select class ="barnSelect" name="barnS">
       </select>
      </div> 
       <div class="selectTwo">
-      <p for="vuxenS">Vuxen</p>
+      <p for="vuxenS">Vuxen: 85kr</p>
       <select class ="vuxenSelect" name="vuxenS">
       </select>
      </div>   
      <div class="selectThree">
-       <p for="pensS">Pensionär</p>
+       <p for="pensS">Pensionär: 75kr</p>
       <select class ="pensSelect" name="pensS">
       </select>
      </div> 
