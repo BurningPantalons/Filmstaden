@@ -27,7 +27,7 @@ let salong = document.getElementById("salong").innerHTML = 'SALONG:  ' + localSt
 let time = document.getElementById("time").innerHTML = localStorage.getItem(`time`, `${choosenScreening.tid}`);
 let email = document.getElementById("email").innerHTML = localStorage.getItem(`email`, `${choosenScreening.mail}`);
 let seats = document.getElementById("seat").innerHTML = localStorage.getItem(`seat`, seat);
-let rowsInSalong = document.getElementById("row").innerHTML = 'RÅD/PLATS:  ' + CreateNumberOfRow(seats, salong);
+let rowsInSalong = document.getElementById("row").innerHTML = 'RAD/PLATS:  ' + CreateNumberOfRow(seats, salong);
 let poster = localStorage.getItem(`poster`, `${document.Poster}`);
 
 /* Create a array with seat-row*/

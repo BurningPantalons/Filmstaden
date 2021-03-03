@@ -4,6 +4,8 @@ let bokning = [];
 let biljett = new Array(10);
 let allTickets = [];
 let bokning_id;
+let wrongseat = false;
+  
 
 pickMovie();
 showMoviePoster();
@@ -73,6 +75,8 @@ function selectedScreening() {
 
   //Sammanfattar ens valda tid och film ovan salong
   appendSelect();
+
+  wrongseat = false;
 }
 
 async function appendAvailableSeats(sal) {
@@ -96,13 +100,18 @@ async function appendAvailableSeats(sal) {
   html = html + `<button id="seatBtn" class="seatBtn">Boka valda platser</button></div></div>` /*skapar en button */
   $(".pickScreening").html(html);
 
-  
+
   const seatBtn = document.querySelector('#seatBtn'); /* tar tag i seatBtn*/
   seatBtn.addEventListener('click', (event) => {  /*lyssnar när vi klickar på seatBtn och kallar på metod som kollar vilka säten som är iklickade och skriver ut värdena i en alert. */
     getSelectedSeatValue("seat");
 
+
     if (choosenScreening.seats.length != allTickets) {
-      alert("Du måste välja rätt antal säten" + "(" + allTickets + ")");
+      
+      if (wrongseat == false) {
+         $(".salong").append("Du måste välja rätt antal säten " + "(" + allTickets + ")");
+      }
+      wrongseat = true;
       return;
     }
 
