@@ -57,7 +57,7 @@ p {
   height: 100%;
   width: 80%;
   background: rgb(148,27,27);
-  background: linear-gradient(0deg, rgb(192, 35, 35) 0%, rgba(253,45,45,1) 100%);
+  background: linear-gradient(0deg, rgb(165, 31, 31) 1%, rgb(223, 40, 40) 70%);
   box-shadow: rgba(167, 167, 167, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
