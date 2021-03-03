@@ -7,7 +7,7 @@ p {
 }
 
 .welcome {
-  background: rgb(255,255,255);
+  background: rgb(118, 118, 118);
   
 }
 
@@ -21,7 +21,7 @@ p {
 
 .welcome > p {
   color: black;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Red Hat Display', sans-serif;
   font-weight: bold;
 }
 
