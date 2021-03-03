@@ -6,6 +6,25 @@ p {
   color:white;
 }
 
+.welcome {
+  background: rgb(255,255,255);
+  
+}
+
+.welcome > h3{
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
+  font-weight: bolder;
+  color: black;
+  text-align: left;
+}
+
+.welcome > p {
+  color: black;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+}
+
 .ticketDiv {
   display:flex;
   flex-direction: row;
