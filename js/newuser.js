@@ -1,3 +1,7 @@
+let wrongPass;
+let invalidMail;
+let emailRegistered = false;
+
 
 /*listening to the label email*/
 
@@ -34,34 +38,29 @@ $("#onclick").click(function () {
 
 function validatepass() {
   passToSave = ($("#pass2").val());
-  if (($("#pass2").val()) !== ($("#pass1").val())) {
-    alert('Passwords do not matche');
-    $('input[name=password').val('');
+  if (($("#pass2").val()) !== ($("#pass1").val()) && !wrongPass) {
+    wrongPass = true;
+    $('.labelImp').append(`<div class="wrongPassword"> <p class="notification"> Passwords do not match!!! </p> </div>`);
+    //$('input[name=password').val('');
+    return;
   }
 }
 
 /*Validate email  by '@' and length > 3*/
 
 function emailValidation(username) {
-  let result = username.indexOf("@");
-  if (username.length > 3) {
-    if (result < 0) {
-      alert('Email is not valid');
+    if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(username)) {
+      return (true)
     }
-    else {
-      return username;
-    }
+    invalidEmail = true; 
+    return (false)
   }
-  else {
-    alert('email is to short');
-  }
-}
 
 
 function emptyPass(password) {
   if (password.length < 4) {
    
-    alert('password is to short');
+    //alert('password is to short');
   }
   else {
     return password;
@@ -77,6 +76,20 @@ function doSubmit() {
 /* Create a new username by e-mail*/
 
 async function createUser(email,pass) {
+
+  if (($("#pass2").val()) !== ($("#pass1").val())) {
+    //$('#passnot').remove();
+    //$('.labelImp').append(`<div> <p class="notification" id="passnot"> Passwords do not match </p> </div>`);
+    return;
+    }
+    //$('input[name=password').val('');
+
+  
+
+  else if (($("#pass2").val()) == ($("#pass1").val())) {  //if passwords match
+
+  if (emailValidation(email)) {  //check if email is valid  
+
   db.run("BEGIN TRANSACTION");
   let stmt = await db.run(`
       insert into users(email, password) VALUES ($email, $pass);`, {
@@ -85,6 +98,8 @@ async function createUser(email,pass) {
   })
   db.run("COMMIT");
   alert('Du är registrerad på FilmStaden, du kan se dina bokningar i loggain-sessionen');
+}
+}
 }
 /* Confirm if the user is registered in database, if not insert new user or alert the user is registrated*/
 
@@ -98,12 +113,18 @@ async function existUser(mail) {
   for (key of stmt) {
     for (i in key) {
       if (key[i] === mail) {
-        $('.labelImp').append(`<div> <p class="notification"> Email already registered </p> </div>`);
-        if (!emailRegistered) {
-        emailRegistered = true;
+        emailRegistered = true; 
       }
     }
   }
+
+  if (emailRegistered) {
+    $('#mailnot').remove();
+    $('.labelImp').append(`<p class="notification" id="mailnot"> Mail redan registrerad </p>`);
+    emailRegistered = false;
+  }
+
+  else {
+  createUser(email,pass);
 }
-createUser(email,pass);
 }

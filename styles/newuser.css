@@ -9,6 +9,11 @@ body {
 }
 
 
+.notification {
+  color:white;
+}
+
+
 #active {
   font-weight: bold;
   text-decoration: underline;

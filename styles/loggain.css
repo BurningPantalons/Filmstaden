@@ -8,6 +8,10 @@ body {
   font-family: Verdana, sans-serif;
 }
 
+.notification {
+  color:white;
+}
+
 
 #active {
   font-weight: bold;
