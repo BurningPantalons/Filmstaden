@@ -1,18 +1,19 @@
 /*listening to the label username/email */
 
-let name = $("#username").focusout(function () {
-  let username = $("#username").val();
-  emailValidation(username);
+let email = $("#username").focusout(function () {
+  email = $("#username").val();
+  emailValidation(email);
 });
 
 
 /*listening to the label password*/
 
-let password = $("#pass").focusout(function () {
-  let pass = $("#pass").val();
+let pass = $("#pass").focusout(function () {
+  pass = $("#pass").val();
   emptyPass(pass);
+  return pass;
 });
-v
+
 /* Changes the label to empty*/
 
 $("#onclick").click(function () {
@@ -38,12 +39,56 @@ function emailValidation(username) {
     alert('email is to short');
   }
 }
+/* Validate if password is empty*/
 
-function emptyPass(password){
-  if (password.length<4){
-      alert('password is to short');
+function emptyPass(password) {
+  if (password.length < 4) {
+    alert('password is to short');
   }
-  else{
-      return password;
+  else {
+    return password;
   }
+}
+
+/*  Function to submit fields*/
+
+function doSubmit() {
+  loggIn(email, pass);
+}
+
+/*Validate email and show the booknings of user */ 
+async function loggIn(email, pass) {
+  db.run("BEGIN TRANSACTION");
+  let stmt = await db.run(`
+      SELECT email, password FROM users WHERE email = $email and password = $pass;`, {
+    email,
+    pass
+  })
+  db.run("COMMIT");
+  for (key of stmt) {
+    for (i in key) {
+      if (key[i] === pass) {
+        alert('du är inloggad');
+        showBokning(email);
+      }
+    }
+    return stmt;
+  }
+  alert('felaktigt användarnamn eller lösenord');
+}
+
+/*Show the values of bookning*/
+
+async function showBokning(mail) {
+  let showBook = [];
+  stmt = await db.run(`
+SELECT bokning_id, titel, salong, datum, tid, antal FROM bokningar WHERE mail = $mail;`, {
+  mail
+  })
+  for (key of stmt) {
+    for (i in key) {
+      showBook.push(key[i]);
+  }
+}
+alert('Dina Bokningar är: ' + showBook);
 }
