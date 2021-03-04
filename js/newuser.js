@@ -40,7 +40,7 @@ function validatepass() {
   passToSave = ($("#pass2").val());
   if (($("#pass2").val()) !== ($("#pass1").val()) && !wrongPass) {
     wrongPass = true;
-    $('.labelImp').append(`<div class="wrongPassword"> <p class="notification"> Passwords do not match!!! </p> </div>`);
+    $('.labelImp').append(`<div class="wrongPassword"> <p class="notification"> Passwords do not match </p> </div>`);
     //$('input[name=password').val('');
     return;
   }
@@ -97,7 +97,7 @@ async function createUser(email,pass) {
         pass
   })
   db.run("COMMIT");
-  alert('Du är registrerad på FilmStaden, du kan se dina bokningar i loggain-sessionen');
+  alert('Du är registrerad på Filmstaden, du kan se dina bokningar i loggain-sessionen');
 }
 }
 }
