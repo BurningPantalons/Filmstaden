@@ -36,14 +36,14 @@ function emailValidation(username) {
 
   }
   else {
-    alert('email is to short');
+   // alert('email is to short');
   }
 }
 /* Validate if password is empty*/
 
 function emptyPass(password) {
   if (password.length < 4) {
-    alert('password is to short');
+   // alert('password is to short');
   }
   else {
     return password;
