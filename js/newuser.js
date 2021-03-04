@@ -98,9 +98,12 @@ async function existUser(mail) {
   for (key of stmt) {
     for (i in key) {
       if (key[i] === mail) {
-        alert("email är redan registrerad");
+        $('.labelImp').append(`<div> <p class="notification"> Email already registered </p> </div>`);
+        if (!emailRegistered) {
+        emailRegistered = true;
       }
     }
   }
-  createUser(email,pass);
+}
+createUser(email,pass);
 }
