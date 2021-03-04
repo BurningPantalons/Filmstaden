@@ -97,7 +97,10 @@ async function createUser(email,pass) {
         pass
   })
   db.run("COMMIT");
+  location.assign("http://localhost:3000/"); 
   alert('Du är registrerad på Filmstaden, du kan se dina bokningar i loggain-sessionen');
+
+  //alert('Du är registrerad på Filmstaden, du kan se dina bokningar i loggain-sessionen');
 }
 }
 }
