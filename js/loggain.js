@@ -28,7 +28,7 @@ function emailValidation(username) {
   let result = username.indexOf("@");
   if (username.length > 3) {
     if (result < 0) {
-      alert('Email is not valid');
+     // alert('Email is not valid');
     }
     else {
       return username;
@@ -74,7 +74,9 @@ async function loggIn(email, pass) {
     }
     return stmt;
   }
-  alert('felaktigt användarnamn eller lösenord');
+  $("#logindenied").remove();
+  $(".field_v2").append(`<p id="logindenied" class="notification"> Felaktigt användarnamn eller lösenord </p> `);
+
 }
 
 /*Show the values of bookning*/
