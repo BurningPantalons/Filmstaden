@@ -71,7 +71,7 @@ async function loggIn(email, pass) {
     for (i in key) {
       if (key[i] === pass) {
        //alert('du är inloggad');
-        //showBokning(email);
+        showBokning(email);
       }
     }
     return stmt;
@@ -94,5 +94,7 @@ SELECT bokning_id, titel, salong, datum, tid, antal FROM bokningar WHERE mail = 
       showBook.push(key[i]);
   }
 }
+
+$('.showBooking').append(`<p>showBoook</p>`);
 //alert('Dina Bokningar är: ' + showBook);
 }
