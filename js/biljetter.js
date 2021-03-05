@@ -86,7 +86,7 @@ async function appendAvailableSeats(sal) {
 
   let html = /*html*/`
   <div class="salong">
-    <div class="salongName"> <span> "Salong" + ${choosenScreening.salong} 
+    <div class="salongName"> <span> Salong ${choosenScreening.salong} 
   </div>
   <h3> FILMDUK </h3> <div class="filmduk"> </div>`;
   let seatNr = 1;
@@ -199,7 +199,6 @@ async function createBiljetter(biljett) {
 }
 
 async function createBooking(bokning) {
-
   db.run("BEGIN TRANSACTION");
   //Deconstructing the biljett
   let [mailen, titeln, stolnr, salongen, datumet, tiden, antalet] = bokning;
@@ -276,24 +275,28 @@ function appendSelect() {
   }
 }
 
-
 function getTicketValue() {
-  appendAvailableSeats(choosenScreening.salong)
-
+  
   let barnTickets = parseInt($(".barnSelect").val());
   let vuxenTickets = parseInt($(".vuxenSelect").val());
   let pensTickets = parseInt($(".pensSelect").val());
   
   ticketSum = barnTickets + vuxenTickets + pensTickets;
+  
+  if (ticketSum == 0) {
+     $(".typeofticket").append("*välj biljettyp*!")
+    return;
+  }
 
   allTickets.splice(0, 1, ticketSum)
   barnTicketPris = barnTickets * 65;
   vuxenTicketsPris = vuxenTickets * 85;
   pensTicketsPris = pensTickets * 75;
-
   prisSumma = barnTicketPris + vuxenTicketsPris + pensTicketsPris;
 
-$('.sammanfattning2').html(`<div class="valdtid"> <p> Datum: ${choosenScreening.datum} &nbsp; Tid: ${choosenScreening.tid} </p> <p>  Antal biljetter: ${allTickets}  </p> <p>  Pris: ${prisSumma}Kr</div>  </p> `);
+  $('.sammanfattning2').html(`<div class="valdtid"> <p> Datum: ${choosenScreening.datum} &nbsp; Tid: ${choosenScreening.tid} </p> <p>  Antal biljetter: ${allTickets}  </p> <p>  Pris: ${prisSumma}Kr</div>  </p> `);
+  
+  appendAvailableSeats(choosenScreening.salong)  
 }
 
 
