@@ -54,6 +54,8 @@ function emptyPass(password) {
 
 function doSubmit() {
   loggIn(email, pass);
+  localStorage.clear();              
+  localStorage.setItem("email", email);
 }
 
 /*Validate email and show the booknings of user */ 
