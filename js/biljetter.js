@@ -11,7 +11,7 @@ pickMovie();
 showMoviePoster();
 
 async function showMoviePoster() {
-  let movies = await $.getJSON("/json/filmer.json"); /* läser in json.filmer */
+  let movies = await $.getJSON("/json/filmer.json"); 
 
   for (let document of movies) {  /*loopar igenom filmer och tar ut varje poster värde som är en bild och lägger den i en img tag */
     let $document = $(/*html*/`
@@ -23,7 +23,7 @@ async function showMoviePoster() {
 
 
 async function pickMovie() {
-  let jsonMovies = await $.getJSON("/json/filmer.json");  /*läser in json.filmer*/
+  let jsonMovies = await $.getJSON("/json/filmer.json");  
 
   let filmval = $(/*html*/`  
     <div class="sammanfattning">
@@ -44,7 +44,7 @@ async function pickMovie() {
 
 
 async function showAvailableTimes(title) {
-  let screenings = await $.getJSON("/json/visningar.json"); /* läser in json.visningar */
+  let screenings = await $.getJSON("/json/visningar.json");
   screenings = screenings.filter(scr => scr.titel === title); /*Matchar den titeln vi får som parameter i funktionsanropet med alla titlar i visningar som vi läser in skapar en ny array med alla matchningar. */
 
 
@@ -56,14 +56,14 @@ async function showAvailableTimes(title) {
     `);
   $('.pickScreening').html($document);
 
-  /*html struktur rad 59-64 där vi skapar en select lista med visningar */
+  
 
-  for (const [key, value] of Object.entries(screenings)) {
-    let $option = $(`<option value="${value.datum}_${value.tid}_${value.salong}_${value.titel}">${value.datum} ${value.tid} Salong ${value.salong}</option>`);
+  for (const [key, value] of Object.entries(screenings)) { 
+    let $option = $(`<option value="${value.datum}_${value.tid}_${value.salong}_${value.titel}">${value.datum} ${value.tid} Salong ${value.salong}</option>`); /*html struktur där vi skapar en select lista med visningar */
 
-    $('#dropdownvisning').append($option);
-  }
-};  /*loopar igenom de matchningar vi får från screenings och plockar ut värdena och lägger i vår select "visning" */
+    $('#dropdownvisning').append($option); 
+  } /*loopar igenom de matchningar vi får från screenings och plockar ut värdena och lägger i vår select "visning" */
+};  
 
 
 function selectedScreening() {
@@ -81,7 +81,7 @@ function selectedScreening() {
 
 async function appendAvailableSeats(sal) {
 
-  let saloon = await $.getJSON("/json/salonger.json"); /*Läser in json.salonger */
+  let saloon = await $.getJSON("/json/salonger.json"); 
   selectedRoom = saloon.filter(r => r.name === sal)[0] /* matchar salong namnen från salonger.json med parametern sal som får värdet efter vald visning, Hämtar första objektet från arrayen som skapas*/
 
   let html = /*html*/`
@@ -103,11 +103,10 @@ async function appendAvailableSeats(sal) {
   })
   html = html + /*html*/`
   <div class="finalBox">
-    <form id="mailFormId">
-        <input type="text" class="inputMail" placeholder="Ange din mail" value="">
-        <!--<input type="button" value="Send" class="confirmMailBtn"  onclick="JavaScript: return ValidateEmail($('.inputMail').val())">-->       
+    <form id="mailFormId"> <!-- här skapas ett inputfält som tar en mailadress som värde -->
+        <input type="text" class="inputMail" placeholder="Ange din mail" value="">      
     </form>    
-    <button id="seatBtn" class="seatBtn">Boka valda platser</button></div></div>
+    <button id="seatBtn" class="seatBtn">Boka valda platser</button></div></div> <!-- knappen kollar värdet av mailen, om rätt antal platser är iklickade och skickar en vidare till bokningsbekräftelse -->
   </div>`;
 
   $(".pickScreening").html(html);
