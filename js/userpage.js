@@ -1,6 +1,8 @@
 
 let mail = localStorage.getItem("email");
-console.log(mail);
+
+/*Show the values of bookning*/
+
 async function showBokning(mail) {
     let showBook = [];
     stmt = await db.run(`
@@ -8,12 +10,16 @@ async function showBokning(mail) {
         mail
     })
     for (key of stmt) {
+        let x = 0;
         for (i in key) {
-            showBook.push(key[i]);
-        }
+            showBook.push("  " + key[i]);
+        } 
+       if (x<6){
+        showBook.push('<br>');
+        x++;
+       } 
     }
-    return showBook;
+    $(".appendBook").append(showBook);
 }
+showBokning(mail);
 $(".user").append("Välkommen: " + mail);
-$(".showBookning").append("Dina bookningar är: " + showBokning(mail));
-
