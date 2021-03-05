@@ -105,7 +105,6 @@ async function appendAvailableSeats(sal) {
   seatBtn.addEventListener('click', (event) => {  /*lyssnar när vi klickar på seatBtn och kallar på metod som kollar vilka säten som är iklickade och skriver ut värdena i en alert. */
     getSelectedSeatValue("seat");
 
-
     if (choosenScreening.seats.length != allTickets) {
       
       if (wrongseat == false) {
@@ -116,20 +115,14 @@ async function appendAvailableSeats(sal) {
     }
 
     else {
-      let mail = prompt('Ange din mail för bokningsbekräftelse.');
+      let mail = prompt('Ange din mail för bokningsbekräftelse.'); //ska ersättas med ett textfält i dom
 
       validemail = ValidateEmail(mail);
 
       if (validemail) {
-
-        alert("Du har bokat platserna " + getSelectedSeatValue("seat") + '\n' + "till filmen" + ` ${choosenScreening.titel} \n ${choosenScreening.datum} ${choosenScreening.tid} salong ${choosenScreening.salong}.
-      \n Bokningsbekräftelse är skickad till ${mail}. \n Vänligen hämta ut biljetterna senast 10 minuter för visning.`);
-
       /*Creates ticketnumber and save the value in localStorage*/
       bokning_id = ticketNumber();
       localStorage.setItem(`bokning_id`,`${bokning_id}`);
-      
-
         //Creates a booking to sqlite3 for each seat booked.
         for (i = 0; i < choosenScreening.seats.length; i++) {
           biljett = [mail, choosenScreening.titel, choosenScreening.seats[i], choosenScreening.salong, choosenScreening.datum, choosenScreening.tid, choosenScreening.seats.length];
@@ -137,7 +130,6 @@ async function appendAvailableSeats(sal) {
           bokning.push(biljett);
           createBiljetter(biljett);
          
-
           /*Save the values of film choose*/
 
           localStorage.setItem(`email`, `${mail}`);
@@ -151,12 +143,11 @@ async function appendAvailableSeats(sal) {
         createBooking(biljett);
 
         $(".ticketContainer").append(`<button onclick="location.href='/html/bekraftabiljett.html?${document.MovieId}'" class="ticketButton"
-        type="button">Boka Biljett</button>`);
+        type="button">Boka Biljett</button>`); //ska bort, knappen i salonger skickar vidare istället
       }
     }
   });
 }
-
 
 function ValidateEmail(mail) {
 
@@ -168,7 +159,6 @@ function ValidateEmail(mail) {
 }
 
 /* Create the ticket number*/
-
 function ticketNumber() {
   let result = '';
   let characters = 'ABCDEF6789';
@@ -181,7 +171,6 @@ function ticketNumber() {
 
 async function createBiljetter(biljett) {
   db.run("BEGIN TRANSACTION");
-
     //Deconstructing the biljett
     let [mailen, titeln, stolnr, salongen, datumet, tiden, antal] = biljett;
 
@@ -194,8 +183,7 @@ async function createBiljetter(biljett) {
       datumet,
       tiden
     })
-    db.run("COMMIT");;
-
+    db.run("COMMIT");
 }
 
 async function createBooking(bokning) {
@@ -205,7 +193,7 @@ async function createBooking(bokning) {
   let [mailen, titeln, stolnr, salongen, datumet, tiden, antalet] = bokning;
 
   let stmt = await db.run(`
-      insert into bokningar(bokning_id, mail, titel, salong, datum, tid, antal) VALUES ($bokning_id, $mailen, $titeln, $salongen, $datumet, $tiden, $antalet);`, {
+    insert into bokningar(bokning_id, mail, titel, salong, datum, tid, antal) VALUES ($bokning_id, $mailen, $titeln, $salongen, $datumet, $tiden, $antalet);`, {
     bokning_id,
     mailen,
     titeln,
@@ -213,13 +201,9 @@ async function createBooking(bokning) {
     datumet,
     tiden,
     antalet
-  }
-  )
-  db.run("COMMIT");
-  ;
-
+  })
+  db.run("COMMIT");  
 }
-
 
 function getSelectedSeatValue(seat) {
   const checkBoxes = document.querySelectorAll(`input[name="${seat}"]:checked`); /*tar tag i de säten som i iklickade */
@@ -233,18 +217,12 @@ function getSelectedSeatValue(seat) {
   return values;
 }
 
-
- function pickTime(value) {
+function pickTime(value) {
   console.log(value);
   //clears the times in html to enable a new movie choice
   $('.valdtid').html(`</div>`);
   $('.sammanfattning2').html(`</div>`);
 }
-
-
-
-
-
 
 function appendSelect() {
 
@@ -272,8 +250,6 @@ function appendSelect() {
      </div>
      `)
   $('.pickScreening').html($html);
-
-  
   let $barnS = $(".barnSelect");
   for (i = 0; i <= 10; i++) {
     $barnS.append($('<option></option>').val(i).html(i))
