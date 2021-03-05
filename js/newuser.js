@@ -1,7 +1,7 @@
 let wrongPass;
 let invalidMail;
 let emailRegistered = false;
-
+let tooShort = false;
 
 /*listening to the label email*/
 
@@ -59,8 +59,9 @@ function emailValidation(username) {
 
 function emptyPass(password) {
   if (password.length < 4) {
-   
-    //alert('password is to short');
+    $('#passShort').remove();
+    $('.labelImp').append(`<p id="passShort" class="notification"> Password is too short </p> `);
+    return tooShort = true; 
   }
   else {
     return password;
@@ -70,7 +71,12 @@ function emptyPass(password) {
 /*  Function to submit fields*/
 
 function doSubmit() {
+  tooshort = false;
+  emptyPass(pass);
+
+  if (!tooShort)
   existUser(email, pass);
+  
 }
 
 /* Create a new username by e-mail*/
@@ -83,7 +89,6 @@ async function createUser(email,pass) {
     return;
     }
     //$('input[name=password').val('');
-
   
 
   else if (($("#pass2").val()) == ($("#pass1").val())) {  //if passwords match
@@ -99,8 +104,6 @@ async function createUser(email,pass) {
   db.run("COMMIT");
   location.assign("http://localhost:3000/"); 
   alert('Du är registrerad på Filmstaden, du kan se dina bokningar i loggain-sessionen');
-
-  //alert('Du är registrerad på Filmstaden, du kan se dina bokningar i loggain-sessionen');
 }
 }
 }
