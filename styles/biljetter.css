@@ -138,12 +138,9 @@ font-size: 22px;
   gap: 25px;
 }
 
-
 .btnContainer {
   display:flex;
-  margin-top: auto;
-
-   
+  margin-top: auto;  
 }
 
 .ticketBtn {
@@ -166,3 +163,17 @@ color: white;
   box-shadow: rgba(167, 167, 167, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   cursor: pointer;
 }
+
+#mailFormId > .inputMail{
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  color: rgba(9, 9, 9, 0.5);
+  margin-top: 1vw;
+
+}
+
+.finalBox {
+  display: flex;
+  justify-content: space-around;
+}
+

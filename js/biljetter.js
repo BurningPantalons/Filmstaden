@@ -84,7 +84,11 @@ async function appendAvailableSeats(sal) {
   let saloon = await $.getJSON("/json/salonger.json"); /*Läser in json.salonger */
   selectedRoom = saloon.filter(r => r.name === sal)[0] /* matchar salong namnen från salonger.json med parametern sal som får värdet efter vald visning, Hämtar första objektet från arrayen som skapas*/
 
-  let html = `<div class="salong"> <div class="salongName"> <span> ${choosenScreening.salong} </div> <h3> FILMDUK </h3> <div class="filmduk"> </div>`;
+  let html = /*html*/`
+  <div class="salong">
+    <div class="salongName"> <span> "Salong" + ${choosenScreening.salong} 
+  </div>
+  <h3> FILMDUK </h3> <div class="filmduk"> </div>`;
   let seatNr = 1;
   let salongRad = 1;
 
@@ -97,7 +101,15 @@ async function appendAvailableSeats(sal) {
     }
     html = html + `</div></br>`
   })
-  html = html + `<button id="seatBtn" class="seatBtn">Boka valda platser</button></div></div>` /*skapar en button */
+  html = html + /*html*/`
+  <div class="finalBox">
+    <form id="mailFormId">
+        <input type="text" class="inputMail" placeholder="Ange din mail" value="">
+        <!--<input type="button" value="Send" class="confirmMailBtn"  onclick="JavaScript: return ValidateEmail($('.inputMail').val())">-->       
+    </form>    
+    <button id="seatBtn" class="seatBtn">Boka valda platser</button></div></div>
+  </div>`;
+
   $(".pickScreening").html(html);
 
 
@@ -115,12 +127,9 @@ async function appendAvailableSeats(sal) {
     }
 
     else {
-      let mail = prompt('Ange din mail för bokningsbekräftelse.'); //ska ersättas med ett textfält i dom
+      let mail = $('.inputMail').val();
+      if(ValidateEmail(mail)){
 
-      validemail = ValidateEmail(mail);
-
-      if (validemail) {
-      /*Creates ticketnumber and save the value in localStorage*/
       bokning_id = ticketNumber();
       localStorage.setItem(`bokning_id`,`${bokning_id}`);
         //Creates a booking to sqlite3 for each seat booked.
@@ -141,9 +150,10 @@ async function appendAvailableSeats(sal) {
           localStorage.setItem(`row`, `${salongRad}`);
         }
         createBooking(biljett);
-
-        $(".ticketContainer").append(`<button onclick="location.href='/html/bekraftabiljett.html?${document.MovieId}'" class="ticketButton"
-        type="button">Boka Biljett</button>`); //ska bort, knappen i salonger skickar vidare istället
+      seatBtn.html(location.href = `/html/bekraftabiljett.html?${document.MovieId}`);
+      }
+      else if(!ValidateEmail(mail)){
+        return false;
       }
     }
   });
@@ -152,9 +162,12 @@ async function appendAvailableSeats(sal) {
 function ValidateEmail(mail) {
 
   if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail)) {
+    $('.savedMail').remove();
+    $('.salong').append(`<p class="savedMail"><h5>Mail sparad.</h5></p>`);
     return (true)
   }
-  alert("You have entered an invalid email address!")
+  $('.savedMail').remove();
+  $('.salong').append(`<p class="savedMail"><h5>*Ej giltig mailadress!*</h5></p>`);
   return (false)
 }
 

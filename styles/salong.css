@@ -74,7 +74,7 @@ label{
  
 }
 
-input{
+input[type="checkbox"]{
     z-index: 2;
     opacity: 0;
     width: 30px;
