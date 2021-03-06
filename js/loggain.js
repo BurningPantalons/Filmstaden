@@ -33,7 +33,6 @@ function emailValidation(username) {
     else {
       return username;
     }
-
   }
   else {
    // alert('email is to short');
@@ -51,7 +50,6 @@ function emptyPass(password) {
 }
 
 /*  Function to submit fields*/
-
 function doSubmit() {
   loggIn(email, pass);
   localStorage.clear();              
@@ -80,9 +78,7 @@ async function loggIn(email, pass) {
   $(".field_v2").append(`<p id="logindenied" class="notification"> Felaktigt användarnamn eller lösenord </p> `);
 
 }
-
 /*Show the values of bookning*/
-
 async function showBokning(mail) {
   let showBook = [];
   stmt = await db.run(`

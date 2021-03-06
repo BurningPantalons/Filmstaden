@@ -9,8 +9,6 @@ async function readMovieJson() {
   let jsonMovies = await $.getJSON("/json/filmer.json");
   showMovieAsHtml(jsonMovies, movie);
 }
-
-
 /* The "for let...of" creates a loop
    iterating over iterable objects(document)
    $document creates a div for each object.*/
@@ -41,8 +39,6 @@ function showMovieAsHtml(collection, className) {
           class="movieButton"
           type="button">Läs Mer
         </button>
-
-        <!-- todo> #4 # ! NEED TO CHANGE href TO BILJETTER ! --> 
         <button 
           onclick="location.href='/html/biljetter.html'"
           class="movieButton"

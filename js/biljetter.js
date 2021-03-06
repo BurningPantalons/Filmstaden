@@ -298,12 +298,3 @@ function getTicketValue() {
   
   appendAvailableSeats(choosenScreening.salong)  
 }
-
-
-
-
-
-
-
-
-
