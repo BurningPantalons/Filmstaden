@@ -1,6 +1,6 @@
 # Filmstaden :movie_camera:
 
-###Filmstaden is a front-end project for rebuilding a website dedicated to cinemas and movies.
+### Filmstaden is a front-end project for rebuilding a website dedicated to cinemas and movies.
 
 With the focus on front end usability, the web application makes use of Sqlite database to store bookings.
 The front end of the web application automatically scales as JSON documents are filled with data.
